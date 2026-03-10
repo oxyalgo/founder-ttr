@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Founder TTR",
+  description:
+    "Founder TTR terms of service for credit repair, funding assistance, and AI trading services.",
+};
+
 export default function TermsPage() {
   return (
     <>
@@ -18,9 +26,9 @@ export default function TermsPage() {
                 1. Acceptance of Terms
               </h2>
               <p>
-                By accessing or using Founder TTR&apos;s website and services,
-                you agree to be bound by these Terms of Service. If you do not
-                agree to these terms, please do not use our services.
+                By using Founder TTR&apos;s website and services, you agree to
+                these Terms of Service. If you do not agree, do not use our
+                services.
               </p>
             </div>
 
@@ -31,139 +39,87 @@ export default function TermsPage() {
               <p className="mb-3">Founder TTR provides:</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong className="text-white">Credit Repair Services:</strong>{" "}
-                  Disputing inaccurate, incomplete, or unverifiable information
-                  on credit reports with credit bureaus and creditors on your
-                  behalf.
+                  <strong className="text-white">Credit Repair:</strong>{" "}
+                  Disputing inaccurate information on credit reports with bureaus
+                  and creditors on your behalf.
                 </li>
                 <li>
                   <strong className="text-white">Funding Assistance:</strong>{" "}
-                  Guidance and support in accessing business credit cards, lines
-                  of credit, and other funding products.
+                  Guidance in accessing business credit cards, loans, and other
+                  funding products.
                 </li>
                 <li>
-                  <strong className="text-white">Trading Education:</strong>{" "}
-                  Educational content and resources about forex trading,
-                  financial markets, and investment strategies.
+                  <strong className="text-white">AI Trading Services:</strong>{" "}
+                  Access to AI-powered trading signals and automated execution
+                  through our technology partner OXY ALGO.
                 </li>
               </ul>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                3. Client Responsibilities
-              </h2>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Provide accurate and complete information</li>
-                <li>
-                  Respond to communications in a timely manner
-                </li>
-                <li>
-                  Not use our services for any unlawful purpose
-                </li>
-                <li>
-                  Maintain the confidentiality of your account information
-                </li>
-                <li>
-                  Notify us promptly of any changes to your personal information
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-bold text-white mb-3">
-                4. No Guarantees
+                3. No Guarantees
               </h2>
               <p>
                 Founder TTR does not guarantee specific credit score increases,
-                removal of any particular item from credit reports, or approval
-                of funding applications. Results vary based on individual
-                circumstances. Past client results are not indicative of future
-                outcomes.
+                removal of any particular item, approval of funding, or trading
+                profits. Results vary based on individual circumstances. Past
+                results are not indicative of future outcomes.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                5. Payment Terms
+                4. Payment Terms
               </h2>
               <p>
-                Fees for services are disclosed before enrollment. Monthly
-                subscription fees are billed on a recurring basis until
-                cancelled. Refund policies are outlined in your service
-                agreement. Late or failed payments may result in service
-                suspension.
+                Fees are disclosed before enrollment. Monthly subscriptions are
+                billed on a recurring basis until cancelled. Refund policies are
+                outlined in your service agreement.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                6. Cancellation Policy
+                5. Cancellation
               </h2>
               <p>
-                You may cancel your services at any time by contacting our
-                support team. Cancellation takes effect at the end of the
-                current billing period. No refunds will be issued for partial
-                months of service.
+                You may cancel at any time by contacting support. Cancellation
+                takes effect at the end of the current billing period. No refunds
+                for partial months.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                7. Intellectual Property
+                6. Trading Risk Acknowledgment
               </h2>
               <p>
-                All content on this website, including text, graphics, logos,
-                images, videos, and educational materials, is the property of
-                Founder TTR and is protected by copyright and other intellectual
-                property laws. You may not reproduce, distribute, or create
-                derivative works without our written consent.
+                Trading involves significant risk of loss. By using our trading
+                services, you acknowledge that you understand these risks and
+                that past performance does not guarantee future results. You
+                should not trade with money you cannot afford to lose.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                8. Limitation of Liability
+                7. Limitation of Liability
               </h2>
               <p>
                 To the maximum extent permitted by law, Founder TTR shall not be
-                liable for any indirect, incidental, special, consequential, or
-                punitive damages arising from or related to your use of our
-                services. Our total liability shall not exceed the amount you
-                paid for services in the 12 months preceding the claim.
+                liable for any indirect, incidental, special, or consequential
+                damages. Our total liability shall not exceed the amount you paid
+                in the 12 months preceding the claim.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl font-bold text-white mb-3">
-                9. Dispute Resolution
+                8. Contact
               </h2>
               <p>
-                Any disputes arising from these Terms or our services shall be
-                resolved through binding arbitration in accordance with the rules
-                of the American Arbitration Association. You agree to waive any
-                right to participate in a class action lawsuit.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-bold text-white mb-3">
-                10. Modifications
-              </h2>
-              <p>
-                Founder TTR reserves the right to modify these Terms at any
-                time. Changes will be posted on this page. Continued use of our
-                services after changes constitutes acceptance of the modified
-                terms.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-bold text-white mb-3">
-                11. Contact
-              </h2>
-              <p>
-                For questions about these Terms of Service, contact us at{" "}
+                Questions about these Terms? Contact us at{" "}
                 <a
                   href="mailto:support@founderttr.com"
                   className="text-[var(--gold)] hover:underline"

@@ -1,26 +1,22 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import SectionHeading from "@/components/SectionHeading";
 
 const contactInfo = [
   {
-    icon: "📧",
     title: "Email",
     value: "support@founderttr.com",
     href: "mailto:support@founderttr.com",
   },
   {
-    icon: "📞",
     title: "Phone",
     value: "(555) 000-0000",
     href: "tel:+15550000000",
   },
   {
-    icon: "📍",
     title: "Location",
     value: "United States",
-    href: null,
+    href: null as string | null,
   },
 ];
 
@@ -51,27 +47,25 @@ export default function ContactPage() {
             <span className="text-gold-gradient">Get In Touch</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto">
-            Have a question about credit repair, funding, or trading education?
-            We&apos;re here to help. Send us a message and we&apos;ll get back
-            to you within 24 hours.
+            Questions about credit repair, funding, or AI trading? Send us a
+            message. We reply within 24 hours.
           </p>
         </div>
       </section>
 
-      {/* Contact Form + Info */}
+      {/* Form + Info */}
       <section className="section">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Form */}
           <div className="lg:col-span-2">
             {submitted ? (
               <div className="card text-center py-12">
-                <div className="text-5xl mb-4">&#10003;</div>
+                <div className="text-5xl mb-4 text-[var(--gold)]">&#10003;</div>
                 <h2 className="text-2xl font-bold text-white mb-3">
                   Message Sent!
                 </h2>
                 <p className="text-[var(--muted)]">
-                  Thank you for reaching out. We&apos;ll get back to you within
-                  24 hours.
+                  We will get back to you within 24 hours.
                 </p>
               </div>
             ) : (
@@ -163,11 +157,10 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Contact Info */}
+          {/* Info Cards */}
           <div className="space-y-6">
             {contactInfo.map((info) => (
               <div key={info.title} className="card">
-                <div className="text-2xl mb-2">{info.icon}</div>
                 <h3 className="text-sm font-bold text-white mb-1">
                   {info.title}
                 </h3>

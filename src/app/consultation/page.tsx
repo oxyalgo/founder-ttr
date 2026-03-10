@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
+import ScrollReveal from "@/components/ScrollReveal";
+
+const interests = [
+  "Credit Repair",
+  "Funding",
+  "AI Trading",
+  "Full Flywheel (All Three)",
+];
 
 const scoreRanges = [
   "Below 500",
@@ -10,28 +19,29 @@ const scoreRanges = [
   "620-679",
   "680-719",
   "720+",
+  "Not sure",
 ];
 
 const expectations = [
   {
-    icon: "📞",
     title: "15-Minute Call",
-    description: "A focused conversation about your current credit situation and financial goals.",
+    description:
+      "A quick focused conversation about your situation and goals.",
   },
   {
-    icon: "📋",
     title: "Credit Review",
-    description: "We'll discuss what's on your report and identify the items hurting your score most.",
+    description:
+      "We look at what is on your report and what is hurting your score.",
   },
   {
-    icon: "🗺️",
-    title: "Custom Game Plan",
-    description: "You'll leave with a clear roadmap — whether that's credit repair, funding, or both.",
+    title: "Custom Plan",
+    description:
+      "You leave with a clear roadmap. Credit, funding, trading, or all three.",
   },
   {
-    icon: "💰",
-    title: "No Obligation",
-    description: "This consultation is completely free. No pressure, no hidden fees, no commitments.",
+    title: "No Pressure",
+    description:
+      "Completely free. No obligation. No hidden fees. No commitments.",
   },
 ];
 
@@ -40,14 +50,14 @@ export default function ConsultationPage() {
     name: "",
     email: "",
     phone: "",
+    interest: "",
     scoreRange: "",
-    problem: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // In production, this would send to an API
     console.log("Consultation form submitted:", formData);
     setSubmitted(true);
   }
@@ -65,24 +75,24 @@ export default function ConsultationPage() {
             <span className="text-gold-gradient">Free Consultation</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto">
-            Tell us about your situation and we'll reach out to schedule your
-            free credit consultation. No strings attached.
+            Tell us about your situation. We will reach out within 24 hours.
+            No strings attached.
           </p>
         </div>
       </section>
 
-      {/* Form Section */}
+      {/* Form */}
       <section className="section">
         <div className="max-w-2xl mx-auto">
           {submitted ? (
             <div className="card text-center py-12">
-              <div className="text-5xl mb-4">&#10003;</div>
+              <div className="text-5xl mb-4 text-[var(--gold)]">&#10003;</div>
               <h2 className="text-2xl font-bold text-white mb-3">
                 Request Received!
               </h2>
               <p className="text-[var(--muted)]">
-                Thank you for reaching out. Our team will contact you within 24
-                hours to schedule your free consultation.
+                We will contact you within 24 hours to schedule your free
+                consultation.
               </p>
             </div>
           ) : (
@@ -149,10 +159,35 @@ export default function ConsultationPage() {
 
               <div>
                 <label
+                  htmlFor="interest"
+                  className="block text-sm font-medium text-white mb-2"
+                >
+                  What Interests You? *
+                </label>
+                <select
+                  id="interest"
+                  required
+                  value={formData.interest}
+                  onChange={(e) =>
+                    setFormData({ ...formData, interest: e.target.value })
+                  }
+                  className="w-full px-4 py-3 bg-[var(--navy-dark)] border border-[var(--card-border)] rounded-lg text-white focus:outline-none focus:border-[var(--gold)] transition-colors"
+                >
+                  <option value="">Select one</option>
+                  {interests.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
                   htmlFor="scoreRange"
                   className="block text-sm font-medium text-white mb-2"
                 >
-                  Current Credit Score Range *
+                  Credit Score Range *
                 </label>
                 <select
                   id="scoreRange"
@@ -174,21 +209,20 @@ export default function ConsultationPage() {
 
               <div>
                 <label
-                  htmlFor="problem"
+                  htmlFor="message"
                   className="block text-sm font-medium text-white mb-2"
                 >
-                  What&apos;s Your Main Problem? *
+                  Tell Us More (Optional)
                 </label>
                 <textarea
-                  id="problem"
-                  required
+                  id="message"
                   rows={4}
-                  value={formData.problem}
+                  value={formData.message}
                   onChange={(e) =>
-                    setFormData({ ...formData, problem: e.target.value })
+                    setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full px-4 py-3 bg-[var(--navy-dark)] border border-[var(--card-border)] rounded-lg text-white placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--gold)] transition-colors resize-none"
-                  placeholder="Tell us about your credit situation, funding needs, or financial goals..."
+                  placeholder="Tell us about your credit, funding needs, or trading goals..."
                 />
               </div>
 
@@ -198,8 +232,7 @@ export default function ConsultationPage() {
 
               <p className="text-[var(--muted)] text-xs text-center">
                 By submitting this form, you agree to be contacted about our
-                services. We respect your privacy and will never share your
-                information.
+                services. We respect your privacy.
               </p>
             </form>
           )}
@@ -212,12 +245,15 @@ export default function ConsultationPage() {
           <SectionHeading
             label="What to Expect"
             title="Your Free Consultation Includes"
-            subtitle="Here's exactly what happens when you book a call with us."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {expectations.map((item) => (
+            {expectations.map((item, i) => (
               <div key={item.title} className="card text-center">
-                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--gold-light)] to-[var(--gold-dark)] flex items-center justify-center mx-auto mb-4">
+                  <span className="text-[var(--background)] font-bold text-sm">
+                    {i + 1}
+                  </span>
+                </div>
                 <h3 className="text-lg font-bold text-white mb-2">
                   {item.title}
                 </h3>

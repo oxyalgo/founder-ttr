@@ -1,45 +1,39 @@
+import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
+import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
+
+export const metadata: Metadata = {
+  title: "About Founder TTR | Our Story",
+  description:
+    "A credit repair expert who discovered trading automation. Now we help everyday people fix their credit, get funded, and let AI grow their money.",
+  openGraph: {
+    title: "About Founder TTR | Our Story",
+    description:
+      "From credit repair to AI trading. The founder story behind the Flywheel.",
+  },
+};
 
 const values = [
   {
-    icon: "🎯",
-    title: "Mission",
+    title: "Discipline",
     description:
-      "To empower individuals and entrepreneurs to take control of their financial future through professional credit repair, strategic funding access, and market education.",
+      "We follow the process. No shortcuts. No magic fixes. Just proven steps that work every time.",
   },
   {
-    icon: "🔭",
-    title: "Vision",
+    title: "Transparency",
     description:
-      "A world where bad credit doesn't define your potential. We envision every person having the knowledge, tools, and credit profile to build generational wealth.",
+      "You see everything. Every dispute. Every trade. Every number. No hidden fees. No fine print games.",
   },
   {
-    icon: "⚖️",
-    title: "Values",
+    title: "Simplicity",
     description:
-      "Transparency, results-driven service, and client education. We don't just fix your credit — we teach you how to keep it strong for life.",
-  },
-];
-
-const team = [
-  {
-    name: "Founder",
-    role: "CEO & Credit Strategist",
-    description:
-      "With years of experience in credit repair and financial services, our founder built TTR to make professional credit solutions accessible to everyone.",
+      "We keep it simple. You should not need a finance degree to fix your credit or make money trading.",
   },
   {
-    name: "Credit Team",
-    role: "Dispute Specialists",
+    title: "Results",
     description:
-      "Our certified credit specialists handle disputes, bureau communications, and score optimization strategies for every client.",
-  },
-  {
-    name: "Funding Team",
-    role: "Funding Advisors",
-    description:
-      "Our funding advisors help clients navigate business credit cards, lines of credit, and capital access once their credit is optimized.",
+      "Talk is cheap. We measure everything. If it does not move the needle, we do not do it.",
   },
 ];
 
@@ -47,8 +41,9 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="section bg-[var(--navy-dark)] relative overflow-hidden">
+        <div className="glow-orb glow-orb-gold w-72 h-72 top-0 right-0" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <p className="text-[var(--gold)] font-semibold text-sm uppercase tracking-widest mb-4">
             Our Story
           </p>
@@ -57,109 +52,139 @@ export default function AboutPage() {
             <span className="text-gold-gradient">Lived It</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto">
-            Founder TTR was born from personal experience. After facing credit
-            denials, funding rejections, and the frustration of a broken financial
-            system, we decided to master the game — and help others do the same.
-            Today, we help hundreds of clients repair their credit, access funding,
-            and build real wealth through proven strategies.
+            Bad credit. Denied loans. No way to grow. The founder of TTR
+            went through it all. Then he fixed his credit. Got funded. Discovered
+            trading automation. And built a system so others never have to struggle
+            the same way.
           </p>
         </div>
       </section>
 
-      {/* Mission / Vision / Values */}
-      <section className="section">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="Who We Are"
-            title="More Than Credit Repair"
-            subtitle="We're a full-service financial empowerment company. Credit repair is where we start — wealth building is where we're headed."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {values.map((v) => (
-              <div key={v.title} className="card text-center">
-                <div className="text-4xl mb-4">{v.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{v.title}</h3>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {v.description}
-                </p>
-              </div>
-            ))}
+      {/* The Story */}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeading
+              label="The Beginning"
+              title="From Denied to Funded"
+            />
+            <div className="space-y-6 mt-8 text-[var(--muted)] leading-relaxed">
+              <p>
+                It started with a credit card denial. Then a loan rejection. Then
+                another. The founder had ideas. He had drive. But his credit score
+                was a wall he could not climb.
+              </p>
+              <p>
+                So he learned. He studied the Fair Credit Reporting Act. He learned
+                how disputes work. He fixed his own credit. His score went up over
+                200 points in 6 months.
+              </p>
+              <p>
+                With better credit, funding doors opened. Business credit cards.
+                Lines of credit. Real capital. But he did not stop there.
+              </p>
+              <p>
+                He discovered algorithmic trading. AI that scans the markets and
+                finds trades. He used his funding to enter the markets. And it
+                worked. The money grew.
+              </p>
+              <p className="text-white font-semibold">
+                That is when the Flywheel was born. Fix credit. Get funded. Trade
+                with AI. Make money. Repeat.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* Why Choose Us */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="Why Founder TTR"
-            title="What Sets Us Apart"
-            subtitle="We combine credit expertise, funding knowledge, and market education into one powerful platform."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {[
-              {
-                title: "Results-Driven Process",
-                text: "We track every dispute, monitor every bureau response, and keep you updated on your progress every step of the way.",
-              },
-              {
-                title: "Full Financial Ecosystem",
-                text: "Credit repair, funding access, and trading education — everything you need to go from surviving to thriving.",
-              },
-              {
-                title: "Personalized Strategy",
-                text: "No cookie-cutter plans. Every client gets a custom roadmap based on their unique credit profile and financial goals.",
-              },
-              {
-                title: "Education First",
-                text: "We don't just fix your credit — we teach you how credit works so you stay in control forever.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="card">
-                <h3 className="text-lg font-bold text-[var(--gold)] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {item.text}
-                </p>
-              </div>
-            ))}
+      {/* Mission */}
+      <ScrollReveal>
+        <section className="section bg-[var(--navy-dark)]">
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionHeading
+              label="The Mission"
+              title="Help Everyday People Build Real Income"
+              subtitle="You should not need to be rich to grow your money. You just need the right system."
+            />
+            <div className="card-3d mt-10 max-w-2xl mx-auto">
+              <p className="text-[var(--muted)] leading-relaxed">
+                Most people think credit repair and trading are two different worlds.
+                We connected them. Fix your credit. Use it to get funded. Put that
+                money into the markets with AI doing the heavy lifting. Each step
+                feeds the next. That is our mission. To give everyone access to this
+                system.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* Team */}
-      <section className="section">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="The Team"
-            title="Experts Behind Your Results"
-            subtitle="A dedicated team of credit specialists, funding advisors, and financial educators working for you."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {team.map((member) => (
-              <div key={member.name} className="card text-center">
-                <div className="w-20 h-20 rounded-full bg-[var(--navy)] border-2 border-[var(--gold)] mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[var(--gold)]">
-                    {member.name[0]}
-                  </span>
+      {/* Values */}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-7xl mx-auto">
+            <SectionHeading
+              label="What We Stand For"
+              title="Our Values"
+              subtitle="Four principles guide everything we do."
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              {values.map((v, i) => (
+                <ScrollReveal key={v.title} delay={i * 100}>
+                  <div className="card text-center h-full">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--gold-light)] to-[var(--gold-dark)] flex items-center justify-center mx-auto mb-4">
+                      <span className="text-[var(--background)] font-bold">
+                        {i + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">
+                      {v.title}
+                    </h3>
+                    <p className="text-[var(--muted)] text-sm leading-relaxed">
+                      {v.description}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Flywheel Simple */}
+      <ScrollReveal>
+        <section className="section bg-[var(--navy-dark)]">
+          <div className="max-w-3xl mx-auto text-center">
+            <SectionHeading
+              label="The System"
+              title="The Flywheel in 30 Seconds"
+            />
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                "Step 1: We fix your credit score",
+                "Step 2: You get approved for funding",
+                "Step 3: You fund a trading account",
+                "Step 4: Our AI trades the markets for you",
+                "Step 5: You make money",
+                "Step 6: You repeat with more capital",
+              ].map((step, i) => (
+                <div key={i} className="card text-left">
+                  <p className="text-sm text-white font-medium">{step}</p>
                 </div>
-                <h3 className="text-lg font-bold text-white">{member.name}</h3>
-                <p className="text-[var(--gold)] text-sm mb-3">{member.role}</p>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {member.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+            <p className="text-[var(--muted)] text-sm mt-8">
+              Each step makes the next step stronger. That is the Flywheel.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       <CTABanner
-        title="Ready to Transform Your Financial Future?"
-        subtitle="Book a free consultation and let's build your custom credit repair and funding strategy."
-        ctaText="Get Started"
-        ctaHref="/consultation"
+        headline="Ready to Start?"
+        subtext="Book a free call. We will map out your credit, funding, and trading plan. No pressure."
+        buttonText="Book Free Consultation"
+        buttonHref="/consultation"
       />
     </>
   );

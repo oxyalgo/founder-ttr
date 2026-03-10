@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0b14;
+  --background: #06080f;
   --foreground: #f5f5f5;
   --gold: #d4a843;
   --gold-light: #e8c66a;
@@ -9,9 +9,11 @@
   --navy: #0d1b3e;
   --navy-light: #152550;
   --navy-dark: #060e22;
-  --card-bg: #111827;
-  --card-border: #1f2937;
+  --card-bg: #0c1220;
+  --card-border: #1a2540;
   --muted: #9ca3af;
+  --success: #10b981;
+  --danger: #ef4444;
 }
 
 @theme inline {
@@ -36,91 +38,287 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Gold gradient text utility */
+/* ─── Gold gradient text ─── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #e8c66a, #d4a843, #b8922e);
+  background: linear-gradient(135deg, #f0d078, #d4a843, #b8922e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gold button glow */
+/* ─── Buttons ─── */
 .btn-gold {
   background: linear-gradient(135deg, #d4a843, #b8922e);
-  color: #0a0b14;
+  color: #06080f;
   font-weight: 700;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  padding: 0.875rem 2.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 .btn-gold:hover {
   background: linear-gradient(135deg, #e8c66a, #d4a843);
-  box-shadow: 0 0 20px rgba(212, 168, 67, 0.4);
-  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(212, 168, 67, 0.5), 0 0 60px rgba(212, 168, 67, 0.2);
+  transform: translateY(-2px);
 }
+.btn-gold:hover::before { opacity: 1; }
 
 .btn-outline {
   border: 2px solid var(--gold);
   color: var(--gold);
   font-weight: 700;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  padding: 0.875rem 2.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   text-decoration: none;
   background: transparent;
 }
 .btn-outline:hover {
   background: rgba(212, 168, 67, 0.1);
-  box-shadow: 0 0 15px rgba(212, 168, 67, 0.2);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.3);
+  transform: translateY(-2px);
 }
 
-/* Card styling */
+.btn-white {
+  background: white;
+  color: #06080f;
+  font-weight: 700;
+  padding: 0.875rem 2.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.4s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-white:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Cards ─── */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 1rem;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(212, 168, 67, 0.1);
-  transform: translateY(-2px);
+  border-color: rgba(212, 168, 67, 0.4);
+  box-shadow: 0 0 40px rgba(212, 168, 67, 0.08), 0 20px 60px rgba(0,0,0,0.3);
+  transform: translateY(-4px);
 }
 
-/* Section spacing */
+.card-3d {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.card-3d:hover {
+  border-color: rgba(212, 168, 67, 0.5);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 40px rgba(212, 168, 67, 0.1);
+  transform: translateY(-8px) rotateX(2deg);
+}
+
+/* ─── Section spacing ─── */
 .section {
   padding: 5rem 1.5rem;
 }
-
 @media (min-width: 768px) {
-  .section {
-    padding: 6rem 2rem;
-  }
+  .section { padding: 7rem 2rem; }
 }
 
-/* Animated gradient border */
-.gold-border-glow {
-  position: relative;
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.gold-border-glow::before {
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(212, 168, 67, 0.4); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+.animate-fade-left {
+  animation: fadeInLeft 0.8s ease-out both;
+}
+.animate-fade-right {
+  animation: fadeInRight 0.8s ease-out both;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ─── Scroll reveal (JS-driven) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Glow orbs (background decor) ─── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.glow-orb-gold {
+  background: radial-gradient(circle, #d4a843, transparent 70%);
+}
+.glow-orb-blue {
+  background: radial-gradient(circle, #0066ff, transparent 70%);
+}
+
+/* ─── Glass morphism ─── */
+.glass {
+  background: rgba(12, 18, 32, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Gradient borders ─── */
+.gradient-border {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  z-index: 1;
+}
+.gradient-border::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #e8c66a, #d4a843, #b8922e, #d4a843);
+  background: linear-gradient(135deg, var(--gold-light), transparent 40%, transparent 60%, var(--gold-dark));
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
-.gold-border-glow:hover::before {
-  opacity: 1;
+
+/* ─── Number counter style ─── */
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #f0d078, #d4a843);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Flywheel visual ─── */
+.flywheel-ring {
+  border: 2px solid rgba(212, 168, 67, 0.3);
+  border-radius: 50%;
+  position: relative;
+}
+.flywheel-ring::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--gold);
+  animation: spin-slow 8s linear infinite;
+}
+
+/* ─── Pricing card featured ─── */
+.pricing-featured {
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.08) 0%, var(--card-bg) 100%);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 40px rgba(212, 168, 67, 0.15);
+}
+
+/* ─── Responsive type scale ─── */
+.text-display {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Particle bg dots ─── */
+.dot-grid {
+  background-image: radial-gradient(rgba(212, 168, 67, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }

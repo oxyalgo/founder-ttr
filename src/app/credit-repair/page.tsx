@@ -1,220 +1,296 @@
+import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import StepCard from "@/components/StepCard";
 import FAQItem from "@/components/FAQItem";
+import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 
-const scoreFactors = [
-  { label: "Payment History", percent: 35, description: "On-time payments are the single biggest factor." },
-  { label: "Credit Utilization", percent: 30, description: "How much of your available credit you're using." },
-  { label: "Length of History", percent: 15, description: "Older accounts help your score." },
-  { label: "Credit Mix", percent: 10, description: "A healthy mix of revolving and installment accounts." },
-  { label: "New Credit Inquiries", percent: 10, description: "Too many hard pulls can lower your score." },
+export const metadata: Metadata = {
+  title: "Credit Repair Services | Founder TTR",
+  description:
+    "Professional credit repair that removes late payments, collections, charge-offs, and errors. Step one of the Flywheel. Fix your credit, then get funded.",
+  openGraph: {
+    title: "Credit Repair Services | Founder TTR",
+    description:
+      "We fix your credit. That is step one. Good credit unlocks funding, which funds your trading.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Credit Repair",
+  provider: { "@type": "Organization", name: "Founder TTR" },
+  description:
+    "Professional credit repair services. We dispute inaccurate items, remove collections, and boost your score.",
+  offers: {
+    "@type": "Offer",
+    price: "99",
+    priceCurrency: "USD",
+    description: "Monthly credit repair program",
+  },
+};
+
+const removals = [
+  {
+    icon: "&#10005;",
+    title: "Late Payments",
+    description: "We dispute late payments that should not be there. One removal can add 20-50 points.",
+  },
+  {
+    icon: "&#10005;",
+    title: "Collections",
+    description: "Old debts, medical bills, accounts you never opened. We challenge them all.",
+  },
+  {
+    icon: "&#10005;",
+    title: "Charge-Offs",
+    description: "Accounts marked as written off. Many have errors in balance, date, or ownership.",
+  },
+  {
+    icon: "&#10005;",
+    title: "Hard Inquiries",
+    description: "Companies that pulled your credit without permission. We get those removed.",
+  },
+  {
+    icon: "&#10005;",
+    title: "Identity Errors",
+    description: "Wrong name, wrong address, someone else's accounts on your report. We clean it up.",
+  },
 ];
 
-const commonErrors = [
-  {
-    icon: "⏰",
-    title: "Late Payments",
-    description: "Incorrectly reported late payments that were actually on time, or accounts you never opened.",
-  },
-  {
-    icon: "📋",
-    title: "Collections",
-    description: "Medical bills, old debts, or accounts sent to collections that may be inaccurate, duplicated, or past the statute of limitations.",
-  },
-  {
-    icon: "❌",
-    title: "Charge-Offs",
-    description: "Accounts marked as charged off that may have incorrect balances, dates, or ownership information.",
-  },
-  {
-    icon: "🔍",
-    title: "Hard Inquiries",
-    description: "Unauthorized hard pulls from companies you never applied with, or duplicate inquiries from the same lender.",
-  },
-  {
-    icon: "🆔",
-    title: "Identity Errors",
-    description: "Mixed files, wrong addresses, misspelled names, or accounts belonging to someone else on your report.",
-  },
+const scoreFactors = [
+  { label: "Payment History", percent: 35 },
+  { label: "Amounts Owed", percent: 30 },
+  { label: "Length of History", percent: 15 },
+  { label: "Credit Mix", percent: 10 },
+  { label: "New Inquiries", percent: 10 },
 ];
 
 const steps = [
-  { number: 1, title: "Credit Analysis", description: "We pull your reports from Equifax, Experian, and TransUnion. Every negative item is identified and categorized." },
-  { number: 2, title: "Dispute Strategy", description: "We build a custom dispute plan targeting the items with the highest impact on your score first." },
-  { number: 3, title: "Bureau Communication", description: "We send professionally crafted dispute letters to all three bureaus and directly to creditors when needed." },
-  { number: 4, title: "Score Optimization", description: "Beyond disputes, we optimize your credit utilization, recommend tradeline strategies, and build your profile." },
+  {
+    number: 1,
+    title: "Free Credit Audit",
+    description: "We pull your reports from all 3 bureaus. We find every item that is hurting your score.",
+  },
+  {
+    number: 2,
+    title: "Dispute Strategy",
+    description: "We build a plan. We target the items that will boost your score the most, first.",
+  },
+  {
+    number: 3,
+    title: "Bureau Communication",
+    description: "We send dispute letters to Equifax, Experian, and TransUnion on your behalf.",
+  },
+  {
+    number: 4,
+    title: "Score Optimization",
+    description: "Beyond disputes, we optimize your credit usage and help you build positive history.",
+  },
 ];
 
 const faqs = [
   {
     question: "How long does credit repair take?",
-    answer: "Most clients see significant results within 3-6 months. The timeline depends on the number and type of negative items on your report. Some items can be removed in as little as 30 days.",
+    answer:
+      "Most clients see real results in 3-6 months. Some items can be removed in 30 days. It depends on what is on your report.",
   },
   {
     question: "Is credit repair legal?",
-    answer: "Absolutely. The Fair Credit Reporting Act (FCRA) gives you the legal right to dispute any inaccurate, unverifiable, or unfair information on your credit report. We exercise that right on your behalf.",
+    answer:
+      "Yes. The Fair Credit Reporting Act gives you the right to dispute anything on your credit report that is wrong or cannot be verified.",
   },
   {
-    question: "How much does it cost?",
-    answer: "We offer affordable monthly plans starting with a free consultation. Book a call to get your custom quote based on your specific credit situation.",
-  },
-  {
-    question: "Will removed items come back?",
-    answer: "If an item is removed because it was inaccurate or unverifiable, it should stay off your report. If a creditor later verifies the information, it could reappear — but we re-dispute if that happens.",
+    question: "Why does credit matter for the Flywheel?",
+    answer:
+      "Good credit is step one. Better credit means better funding offers. More funding means more capital for trading. It all starts here.",
   },
   {
     question: "Can you guarantee a specific score?",
-    answer: "No legitimate credit repair company can guarantee a specific score. What we can guarantee is that we will dispute every inaccurate item and fight for the best possible outcome using proven strategies.",
+    answer:
+      "No honest company can guarantee a score. What we guarantee is that we will dispute every inaccurate item and fight for the best results.",
+  },
+  {
+    question: "How much does it cost?",
+    answer:
+      "Credit repair starts at $99 per month. We also offer a Credit + Funding Bundle at $149 per month. Book a free call for details.",
   },
 ];
 
 export default function CreditRepairPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="section bg-[var(--navy-dark)] relative overflow-hidden">
+        <div className="glow-orb glow-orb-gold w-72 h-72 top-0 left-0" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <p className="text-[var(--gold)] font-semibold text-sm uppercase tracking-widest mb-4">
-            Credit Repair
+            Step 1 of the Flywheel
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Professional{" "}
-            <span className="text-gold-gradient">Credit Repair</span> Services
+            We Fix Your Credit.{" "}
+            <span className="text-gold-gradient">That&apos;s Step One.</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            We dispute inaccurate negative items, optimize your credit profile,
-            and help you build the score you need to access funding, housing, and
-            financial freedom.
+            Bad marks on your credit report are costing you money. We remove
+            them. Your score goes up. Then the real doors open: funding,
+            trading, and income.
           </p>
           <a href="/consultation" className="btn-gold">
-            Start Your Repair Today
+            Start Your Credit Repair
           </a>
         </div>
       </section>
 
-      {/* What is Credit Repair */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto">
-          <SectionHeading
-            label="Understanding"
-            title="What Is Credit Repair?"
-            subtitle="Credit repair is the legal process of identifying and disputing inaccurate, incomplete, or unverifiable information on your credit reports."
-          />
-          <div className="mt-8 card">
-            <p className="text-[var(--muted)] leading-relaxed mb-4">
-              Your credit report is maintained by three major bureaus: Equifax,
-              Experian, and TransUnion. These reports often contain errors —
-              studies show that 1 in 5 consumers have an error on at least one
-              credit report. These errors can lower your score by 50 to 200+
-              points.
-            </p>
-            <p className="text-[var(--muted)] leading-relaxed">
-              Under the Fair Credit Reporting Act (FCRA), you have the legal
-              right to dispute any information that is inaccurate, unverifiable,
-              or unfair. Credit repair companies like Founder TTR exercise this
-              right on your behalf using proven dispute strategies.
-            </p>
+      {/* Why Credit Matters */}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-3xl mx-auto text-center">
+            <SectionHeading
+              label="Why It Matters"
+              title="Credit Is the Key to Everything"
+              subtitle="Good credit does not just mean better credit cards. It means funding. And funding means capital for trading."
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+              <div className="card text-center">
+                <div className="stat-number text-3xl mb-2">580</div>
+                <p className="text-[var(--muted)] text-sm">
+                  Denied for most loans and cards
+                </p>
+              </div>
+              <div className="card text-center border-[var(--gold)]">
+                <div className="stat-number text-3xl mb-2">700+</div>
+                <p className="text-[var(--muted)] text-sm">
+                  Approved for funding and 0% APR cards
+                </p>
+              </div>
+              <div className="card text-center">
+                <div className="stat-number text-3xl mb-2">750+</div>
+                <p className="text-[var(--muted)] text-sm">
+                  Premium offers. Maximum capital.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* How Credit Scores Work */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="The Breakdown"
-            title="How Credit Scores Work"
-            subtitle="Your FICO score is calculated from five key factors. Understanding them is the first step to improving your score."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
-            {scoreFactors.map((factor) => (
-              <div key={factor.label} className="card text-center">
-                <div className="text-3xl font-bold text-gold-gradient mb-2">
-                  {factor.percent}%
+      {/* What We Remove */}
+      <ScrollReveal>
+        <section className="section bg-[var(--navy-dark)]">
+          <div className="max-w-7xl mx-auto">
+            <SectionHeading
+              label="What We Fix"
+              title="We Remove What Is Hurting You"
+              subtitle="These are the most common items we dispute and get removed."
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              {removals.map((item) => (
+                <div key={item.title} className="card">
+                  <div
+                    className="text-3xl text-red-400 mb-3"
+                    dangerouslySetInnerHTML={{ __html: item.icon }}
+                  />
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-[var(--muted)] text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-sm font-bold text-white mb-2">
-                  {factor.label}
-                </h3>
-                <p className="text-[var(--muted)] text-xs leading-relaxed">
-                  {factor.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* Common Errors */}
-      <section className="section">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="What We Fix"
-            title="Common Credit Report Errors"
-            subtitle="These are the most common items we dispute and remove from client reports."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {commonErrors.map((error) => (
-              <div key={error.title} className="card">
-                <div className="text-3xl mb-3">{error.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {error.title}
-                </h3>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {error.description}
-                </p>
-              </div>
-            ))}
+      {/* Score Factors */}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeading
+              label="How Scores Work"
+              title="What Makes Up Your Credit Score"
+            />
+            <div className="space-y-5 mt-10">
+              {scoreFactors.map((factor) => (
+                <div key={factor.label}>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-sm font-medium text-white">
+                      {factor.label}
+                    </span>
+                    <span className="text-sm font-bold text-[var(--gold)]">
+                      {factor.percent}%
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-[var(--navy)] rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-[var(--gold-dark)] to-[var(--gold-light)] rounded-full transition-all duration-1000"
+                      style={{ width: `${factor.percent}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Process */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            label="Our Process"
-            title="4 Steps to a Better Score"
-            subtitle="A structured, proven approach that delivers real results."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {steps.map((step) => (
-              <StepCard
-                key={step.number}
-                number={step.number}
-                title={step.title}
-                description={step.description}
-              />
-            ))}
+      <ScrollReveal>
+        <section className="section bg-[var(--navy-dark)]">
+          <div className="max-w-7xl mx-auto">
+            <SectionHeading
+              label="Our Process"
+              title="4 Steps to a Better Score"
+              subtitle="A clear process. No guesswork. No gimmicks."
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              {steps.map((step) => (
+                <StepCard
+                  key={step.number}
+                  number={step.number}
+                  title={step.title}
+                  description={step.description}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* FAQ */}
-      <section className="section">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeading
-            label="FAQ"
-            title="Frequently Asked Questions"
-            subtitle="Honest answers to the most common questions about credit repair."
-          />
-          <div className="mt-10 space-y-4">
-            {faqs.map((faq) => (
-              <FAQItem
-                key={faq.question}
-                question={faq.question}
-                answer={faq.answer}
-              />
-            ))}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeading
+              label="FAQ"
+              title="Questions About Credit Repair"
+            />
+            <div className="mt-10">
+              {faqs.map((faq) => (
+                <FAQItem
+                  key={faq.question}
+                  question={faq.question}
+                  answer={faq.answer}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       <CTABanner
-        title="Start Credit Repair Today"
-        subtitle="Book your free consultation and find out exactly what's hurting your score. No obligation."
-        ctaText="Book Free Consultation"
-        ctaHref="/consultation"
+        headline="Ready to Fix Your Credit?"
+        subtext="Book a free audit. We will show you exactly what is hurting your score and how to fix it."
+        buttonText="Book Free Consultation"
+        buttonHref="/consultation"
       />
     </>
   );

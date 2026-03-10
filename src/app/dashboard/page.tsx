@@ -1,29 +1,48 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
-const features = [
+export const metadata: Metadata = {
+  title: "Client Dashboard | Founder TTR",
+  description:
+    "Track your credit repair progress and AI trading performance. Client dashboard coming soon.",
+};
+
+const creditFeatures = [
   {
-    icon: "📄",
-    title: "Upload Reports",
-    description:
-      "Upload your credit reports from all three bureaus directly through the dashboard for fast analysis.",
+    title: "Score Tracking",
+    description: "Watch your credit score go up month after month. All 3 bureaus.",
   },
   {
-    icon: "📊",
-    title: "Track Disputes",
-    description:
-      "See every dispute in real time — which items have been sent, which are under investigation, and what's been removed.",
+    title: "Dispute Status",
+    description: "See every dispute. What was sent, what is pending, what was removed.",
   },
   {
-    icon: "🔔",
-    title: "View Updates",
-    description:
-      "Get notified when bureau responses come in, score changes happen, or your team has an update for you.",
+    title: "Bureau Responses",
+    description: "Get notified when bureaus respond. No more guessing.",
   },
   {
-    icon: "💬",
-    title: "Message Support",
-    description:
-      "Chat directly with your credit specialist through the dashboard. No phone tag, no waiting.",
+    title: "Chat With Your Team",
+    description: "Message your credit specialist directly. No phone tag.",
+  },
+];
+
+const tradingFeatures = [
+  {
+    title: "Live P&L",
+    description: "See your trading profits and losses in real time.",
+  },
+  {
+    title: "Trade History",
+    description: "Every trade the AI made. Entry, exit, profit, loss. All logged.",
+  },
+  {
+    title: "Signal Feed",
+    description: "Live signal feed from OXY ALGO. See what the AI is scanning.",
+  },
+  {
+    title: "Account Stats",
+    description: "Win rate, total trades, best pairs, risk metrics. All in one place.",
   },
 ];
 
@@ -37,13 +56,12 @@ export default function DashboardPage() {
             Client Portal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Client Dashboard{" "}
+            Your Dashboard{" "}
             <span className="text-gold-gradient">Coming Soon</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto">
-            We&apos;re building a powerful client portal where you can track your
-            credit repair progress, view disputes, and communicate with your
-            team — all in one place.
+            Track your credit repair progress and AI trading performance.
+            Everything in one place. Launching soon.
           </p>
         </div>
       </section>
@@ -98,42 +116,71 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {/* Feature Preview */}
-      <section className="section bg-[var(--navy-dark)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-[var(--gold)] font-semibold text-sm uppercase tracking-widest mb-4">
-              Feature Preview
-            </p>
-            <h2 className="text-3xl font-bold text-white">
-              What Your Dashboard Will Include
-            </h2>
+      {/* Credit Tracking Preview */}
+      <ScrollReveal>
+        <section className="section bg-[var(--navy-dark)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-[var(--gold)] font-semibold text-sm uppercase tracking-widest mb-4">
+                Credit Tracking
+              </p>
+              <h2 className="text-3xl font-bold text-white">
+                Track Your Credit Repair
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {creditFeatures.map((feature) => (
+                <div key={feature.title} className="card text-center">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[var(--muted)] text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature) => (
-              <div key={feature.title} className="card text-center">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+        </section>
+      </ScrollReveal>
+
+      {/* Trading Dashboard Preview */}
+      <ScrollReveal>
+        <section className="section">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-[var(--gold)] font-semibold text-sm uppercase tracking-widest mb-4">
+                Trading Dashboard
+              </p>
+              <h2 className="text-3xl font-bold text-white">
+                Track Your AI Trading
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {tradingFeatures.map((feature) => (
+                <div key={feature.title} className="card text-center">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[var(--muted)] text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* CTA */}
-      <section className="section">
+      <section className="section bg-[var(--navy-dark)]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Want to Be First In?
+            Want Early Access?
           </h2>
           <p className="text-[var(--muted)] mb-6">
-            Book a consultation today and you&apos;ll get early access to the
-            client dashboard when it launches.
+            Book a consultation today. Clients get early access to the dashboard
+            when it launches.
           </p>
           <Link href="/consultation" className="btn-gold">
             Book Free Consultation
