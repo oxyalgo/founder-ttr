@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0b14;
+  --foreground: #f5f5f5;
+  --gold: #d4a843;
+  --gold-light: #e8c66a;
+  --gold-dark: #b8922e;
+  --navy: #0d1b3e;
+  --navy-light: #152550;
+  --navy-dark: #060e22;
+  --card-bg: #111827;
+  --card-border: #1f2937;
+  --muted: #9ca3af;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-navy-dark: var(--navy-dark);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #e8c66a, #d4a843, #b8922e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold button glow */
+.btn-gold {
+  background: linear-gradient(135deg, #d4a843, #b8922e);
+  color: #0a0b14;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e8c66a, #d4a843);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+}
+.btn-outline:hover {
+  background: rgba(212, 168, 67, 0.1);
+  box-shadow: 0 0 15px rgba(212, 168, 67, 0.2);
+}
+
+/* Card styling */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 30px rgba(212, 168, 67, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Section spacing */
+.section {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Animated gradient border */
+.gold-border-glow {
+  position: relative;
+}
+.gold-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #e8c66a, #d4a843, #b8922e, #d4a843);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gold-border-glow:hover::before {
+  opacity: 1;
 }
