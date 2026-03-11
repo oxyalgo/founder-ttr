@@ -27,12 +27,6 @@ const columns = [
   },
 ];
 
-const socials = [
-  { label: 'Facebook', href: '#', icon: 'f' },
-  { label: 'Instagram', href: '#', icon: 'ig' },
-  { label: 'TikTok', href: '#', icon: 'tt' },
-  { label: 'YouTube', href: '#', icon: 'yt' },
-];
 
 export default function Footer() {
   return (
@@ -41,7 +35,7 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-12">
           {columns.map((col) => (
             <div key={col.title}>
               <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--gold)] mb-5">
@@ -61,25 +55,6 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-
-          {/* Connect */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--gold)] mb-5">
-              Connect
-            </h3>
-            <div className="flex gap-3">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--muted)] hover:text-[var(--gold)] hover:border-[var(--gold)]/50 hover:shadow-[0_0_16px_rgba(212,168,67,0.15)] transition-all duration-300 text-xs font-bold uppercase"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Bottom bar */}

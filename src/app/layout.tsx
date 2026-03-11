@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.phimindflow.com'),
   title: "Founder TTR | Credit Repair, Funding & AI Trading",
   description:
     "Fix your credit. Get funded. Let AI trade for you. Founder TTR helps everyday people build real income through credit repair, smart funding, and automated trading.",
@@ -24,6 +25,11 @@ export const metadata: Metadata = {
       "Fix your credit. Get funded. Let AI trade for you. The Flywheel system turns bad credit into real income.",
     type: "website",
     siteName: "Founder TTR",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Founder TTR | Credit Repair, Funding & AI Trading',
+    description: 'Fix your credit. Get funded. Let AI trade for you. The Flywheel system turns bad credit into real income.',
   },
 };
 
@@ -44,7 +50,7 @@ export default function RootLayout({
               name: "Founder TTR",
               description:
                 "Credit repair, funding solutions, and AI-powered trading automation.",
-              url: "https://founderttr.com",
+              url: "https://www.phimindflow.com",
               sameAs: [],
               contactPoint: {
                 "@type": "ContactPoint",
@@ -76,8 +82,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
+        <div className="mobile-sticky-cta">
+          <a href="/consultation" className="btn-gold w-full text-center block text-sm !py-3">
+            Book Free Call
+          </a>
+        </div>
       </body>
     </html>
   );

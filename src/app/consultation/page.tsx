@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -55,11 +54,26 @@ export default function ConsultationPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log("Consultation form submitted:", formData);
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -226,8 +240,16 @@ export default function ConsultationPage() {
                 />
               </div>
 
-              <button type="submit" className="btn-gold w-full text-center">
-                Book My Free Consultation
+              {error && (
+                <p className="text-sm text-red-400 text-center">{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-gold w-full text-center disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {loading ? "Submitting..." : "Book My Free Consultation"}
               </button>
 
               <p className="text-[var(--muted)] text-xs text-center">

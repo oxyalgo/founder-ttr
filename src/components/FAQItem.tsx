@@ -22,6 +22,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
     <div className={`border-b border-[var(--card-border)] transition-colors duration-300 ${open ? 'border-[var(--gold)]/30' : ''}`}>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
         <span className={`text-base font-semibold pr-4 transition-colors duration-300 ${

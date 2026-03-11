@@ -322,3 +322,40 @@ html {
   background-image: radial-gradient(rgba(212, 168, 67, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
 }
+
+/* ─── Mobile sticky CTA ─── */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 0.75rem 1rem;
+  background: rgba(6, 8, 15, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--card-border);
+}
+@media (min-width: 768px) {
+  .mobile-sticky-cta { display: none; }
+}
+
+/* ─── Card hover only on pointer devices ─── */
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgba(212, 168, 67, 0.4);
+    box-shadow: 0 0 40px rgba(212, 168, 67, 0.08), 0 20px 60px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+  }
+  .card-3d:hover {
+    border-color: rgba(212, 168, 67, 0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 40px rgba(212, 168, 67, 0.1);
+    transform: translateY(-8px) rotateX(2deg);
+  }
+}
+@media (hover: none) {
+  .card:hover, .card-3d:hover {
+    border-color: var(--card-border);
+    box-shadow: none;
+    transform: none;
+  }
+}

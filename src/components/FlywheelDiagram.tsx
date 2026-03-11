@@ -53,7 +53,7 @@ export default function FlywheelDiagram() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <div className="section">
+    <div>
       <div className="max-w-5xl mx-auto px-4">
         {/* Desktop circular layout */}
         <div className="hidden md:block">

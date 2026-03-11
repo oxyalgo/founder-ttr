@@ -103,8 +103,8 @@ export default function Hero() {
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'hero-fade-rise 2s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both' }}
         >
-          <Link href="/free-guide" className="btn-gold text-base">
-            Start Your Journey
+          <Link href="/consultation" className="btn-gold text-base">
+            Book Free Call
           </Link>
           <Link href="/pricing" className="btn-outline text-base">
             See Pricing
@@ -116,7 +116,7 @@ export default function Hero() {
           className="mt-20"
           style={{ animation: 'hero-fade-rise 2.5s cubic-bezier(0.16, 1, 0.3, 1) 3s both' }}
         >
-          <div className="inline-flex flex-wrap items-center justify-center gap-8 sm:gap-12 px-10 py-6 rounded-2xl glass">
+          <div className="inline-flex flex-wrap items-center justify-center gap-8 sm:gap-12 px-4 sm:px-10 py-6 rounded-2xl glass">
             {[
               { value: '500+', label: 'Clients Served' },
               { value: '$2M+', label: 'Capital Funded' },

@@ -30,10 +30,13 @@ export default function HeroCanvas() {
     let mouseY = 0;
     let time = 0;
 
+    const isMobile = window.innerWidth < 768;
+    const dpr = Math.min(window.devicePixelRatio, 2);
+
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
     };
 
     const createParticle = (): Particle => {
@@ -52,8 +55,9 @@ export default function HeroCanvas() {
       };
     };
 
-    // Initialize particles
-    for (let i = 0; i < 60; i++) {
+    // Initialize particles — fewer on mobile for performance
+    const particleCount = isMobile ? 30 : 60;
+    for (let i = 0; i < particleCount; i++) {
       const p = createParticle();
       p.y = Math.random() * canvas.offsetHeight;
       p.life = Math.random() * p.maxLife;
@@ -229,20 +233,22 @@ export default function HeroCanvas() {
         }
       });
 
-      // ─── Subtle connection lines between close particles ───
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120 && particles[i].gold && particles[j].gold) {
-            const alpha = (1 - dist / 120) * 0.06 * particles[i].opacity * particles[j].opacity;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(212, 168, 67, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+      // ─── Subtle connection lines between close particles (skip on mobile) ───
+      if (!isMobile) {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120 && particles[i].gold && particles[j].gold) {
+              const alpha = (1 - dist / 120) * 0.06 * particles[i].opacity * particles[j].opacity;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(212, 168, 67, ${alpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
       }

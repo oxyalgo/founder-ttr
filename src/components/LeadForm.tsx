@@ -6,14 +6,25 @@ export default function LeadForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError('');
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -108,6 +119,10 @@ export default function LeadForm() {
             'Send My Free Guide'
           )}
         </button>
+
+        {error && (
+          <p className="text-sm text-red-400 text-center">{error}</p>
+        )}
 
         <p className="text-xs text-[var(--muted)]/50 text-center">
           We respect your privacy. No spam, ever.

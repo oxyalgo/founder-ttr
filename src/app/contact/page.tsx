@@ -9,11 +9,6 @@ const contactInfo = [
     href: "mailto:support@founderttr.com",
   },
   {
-    title: "Phone",
-    value: "(555) 000-0000",
-    href: "tel:+15550000000",
-  },
-  {
     title: "Location",
     value: "United States",
     href: null as string | null,
@@ -28,11 +23,26 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -150,8 +160,16 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn-gold w-full text-center">
-                  Send Message
+                {error && (
+                  <p className="text-sm text-red-400 text-center">{error}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-gold w-full text-center disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}

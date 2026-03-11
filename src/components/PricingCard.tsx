@@ -25,7 +25,7 @@ export default function PricingCard({
     <div
       className={`relative rounded-2xl p-8 flex flex-col transition-all duration-500 ${
         featured
-          ? 'pricing-featured scale-[1.03] z-10'
+          ? 'pricing-featured md:scale-[1.03] z-10'
           : 'card hover:border-[var(--card-border)]'
       }`}
     >
