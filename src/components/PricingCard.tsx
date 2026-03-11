@@ -67,6 +67,7 @@ export default function PricingCard({
       {/* CTA */}
       <Link
         href={ctaHref}
+        {...(ctaHref.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={`text-center text-base ${featured ? 'btn-gold' : 'btn-outline'}`}
       >
         {ctaText}

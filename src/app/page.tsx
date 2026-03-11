@@ -131,7 +131,7 @@ const tradingPlans = [
       "Basic Discord access",
     ],
     ctaText: "Start Trading",
-    ctaHref: "/pricing",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
   },
   {
     name: "Pro",
@@ -147,7 +147,7 @@ const tradingPlans = [
       "Strategy Room access",
     ],
     ctaText: "Go Pro",
-    ctaHref: "/pricing",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
   },
   {
     name: "Elite",
@@ -161,7 +161,7 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "/pricing",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
   },
 ];
 

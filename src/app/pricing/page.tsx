@@ -73,7 +73,7 @@ const tradingPlans = [
       "Mobile alerts",
     ],
     ctaText: "Start Trading",
-    ctaHref: "/consultation",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
   },
   {
     name: "Pro",
@@ -87,7 +87,7 @@ const tradingPlans = [
       "Strategy Room access",
     ],
     ctaText: "Go Pro",
-    ctaHref: "/consultation",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
     featured: true,
     badge: "Best Value",
   },
@@ -103,7 +103,7 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "/consultation",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
   },
 ];
 
