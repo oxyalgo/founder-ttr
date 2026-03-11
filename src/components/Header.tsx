@@ -6,9 +6,9 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
+  { label: 'Trading', href: '/trading' },
   { label: 'Credit Repair', href: '/credit-repair' },
   { label: 'Funding', href: '/funding' },
-  { label: 'Trading', href: '/trading' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
 ];

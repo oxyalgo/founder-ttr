@@ -74,6 +74,13 @@ const steps = [
 
 const services = [
   {
+    icon: "&#9889;",
+    title: "AI Trading",
+    description:
+      "Your money goes to work. Our AI scans forex, crypto, indices, and commodities. It trades for you. 24/7.",
+    href: "/trading",
+  },
+  {
     icon: "&#9881;",
     title: "Credit Repair",
     description:
@@ -86,13 +93,6 @@ const services = [
     description:
       "Once your credit is fixed, we help you get funded. Credit cards, loans, and lines of credit. Real capital.",
     href: "/funding",
-  },
-  {
-    icon: "&#9889;",
-    title: "AI Trading",
-    description:
-      "Your money goes to work. Our AI scans forex, crypto, indices, and commodities. It trades for you. 24/7.",
-    href: "/trading",
   },
 ];
 
@@ -131,7 +131,7 @@ const tradingPlans = [
       "Basic Discord access",
     ],
     ctaText: "Start Trading",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/starter-5f?a=fitflyai",
   },
   {
     name: "Pro",
@@ -147,7 +147,7 @@ const tradingPlans = [
       "Strategy Room access",
     ],
     ctaText: "Go Pro",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/blueprint-70?a=fitflyai",
   },
   {
     name: "Elite",
@@ -161,7 +161,7 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
   },
 ];
 

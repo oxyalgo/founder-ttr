@@ -73,7 +73,7 @@ const tradingPlans = [
       "Mobile alerts",
     ],
     ctaText: "Start Trading",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/starter-5f?a=fitflyai",
   },
   {
     name: "Pro",
@@ -87,7 +87,7 @@ const tradingPlans = [
       "Strategy Room access",
     ],
     ctaText: "Go Pro",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/blueprint-70?a=fitflyai",
     featured: true,
     badge: "Best Value",
   },
@@ -103,7 +103,7 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
   },
 ];
 
@@ -202,22 +202,21 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Credit Repair Plans */}
+      {/* AI Trading Plans */}
       <ScrollReveal>
         <section className="section">
           <div className="max-w-7xl mx-auto">
             <SectionHeading
-              label="Step 1"
-              title="Credit Repair Plans"
-              subtitle="Fix your credit first. That unlocks everything else."
+              label="AI-Powered"
+              title="AI Trading Plans"
+              subtitle="Powered by OXY ALGO. Your money works while you sleep."
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              {creditPlans.map((plan) => (
+              {tradingPlans.map((plan) => (
                 <PricingCard
                   key={plan.name}
                   name={plan.name}
                   price={plan.price}
-                  period={plan.period}
                   features={plan.features}
                   ctaText={plan.ctaText}
                   ctaHref={plan.ctaHref}
@@ -230,21 +229,22 @@ export default function PricingPage() {
         </section>
       </ScrollReveal>
 
-      {/* AI Trading Plans */}
+      {/* Credit Repair Plans */}
       <ScrollReveal>
         <section className="section bg-[var(--navy-dark)]">
           <div className="max-w-7xl mx-auto">
             <SectionHeading
-              label="Step 3"
-              title="AI Trading Plans"
-              subtitle="Powered by OXY ALGO. Your money works while you sleep."
+              label="Credit Fix"
+              title="Credit Repair Plans"
+              subtitle="Fix your credit. That unlocks funding and more capital."
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              {tradingPlans.map((plan) => (
+              {creditPlans.map((plan) => (
                 <PricingCard
                   key={plan.name}
                   name={plan.name}
                   price={plan.price}
+                  period={plan.period}
                   features={plan.features}
                   ctaText={plan.ctaText}
                   ctaHref={plan.ctaHref}
