@@ -9,7 +9,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata: Metadata = {
   title: "Pricing | Founder TTR",
   description:
-    "Credit repair from $99/mo. AI trading from $184/mo. Flywheel bundles that save you money. Simple pricing. No hidden fees.",
+    "Credit repair from $99/mo. AI trading from $149/mo. Flywheel bundles that save you money. Simple pricing. No hidden fees.",
   openGraph: {
     title: "Pricing | Founder TTR",
     description:
@@ -64,7 +64,7 @@ const creditPlans = [
 const tradingPlans = [
   {
     name: "Starter",
-    price: 184,
+    price: 149,
     features: [
       "AI trading signals",
       "7 forex baskets",
@@ -77,7 +77,7 @@ const tradingPlans = [
   },
   {
     name: "Pro",
-    price: 384,
+    price: 349,
     features: [
       "Everything in Starter",
       "Live trade execution",
@@ -93,7 +93,7 @@ const tradingPlans = [
   },
   {
     name: "Elite",
-    price: 1032,
+    price: 997,
     features: [
       "Everything in Pro",
       "Direct line to analysts",

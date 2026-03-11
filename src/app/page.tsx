@@ -123,7 +123,7 @@ const testimonials = [
 const tradingPlans = [
   {
     name: "Starter",
-    price: 184,
+    price: 149,
     features: [
       "AI trading signals",
       "7 forex baskets",
@@ -135,7 +135,7 @@ const tradingPlans = [
   },
   {
     name: "Pro",
-    price: 384,
+    price: 349,
     badge: "Most Popular",
     featured: true,
     features: [
@@ -151,7 +151,7 @@ const tradingPlans = [
   },
   {
     name: "Elite",
-    price: 1032,
+    price: 997,
     features: [
       "Everything in Pro",
       "Direct line to analysts",
