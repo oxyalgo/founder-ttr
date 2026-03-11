@@ -110,12 +110,9 @@ export default function ResourcesPage() {
                     <p className="text-[var(--muted)] text-sm leading-relaxed mb-4 flex-1">
                       {article.excerpt}
                     </p>
-                    <Link
-                      href={article.slug}
-                      className="text-[var(--gold)] text-sm font-semibold hover:underline"
-                    >
-                      Read More &rarr;
-                    </Link>
+                    <span className="text-[var(--gold)]/40 text-xs font-medium uppercase tracking-wider">
+                      Coming Soon
+                    </span>
                   </div>
                 </ScrollReveal>
               ))}
