@@ -131,7 +131,7 @@ const tradingPlans = [
       "Basic Discord access",
     ],
     ctaText: "Start Trading",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/starter-5f?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/premium-4a-1c82?a=fitflyai",
   },
   {
     name: "Pro",
@@ -147,7 +147,7 @@ const tradingPlans = [
       "Strategy Room access",
     ],
     ctaText: "Go Pro",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/blueprint-70?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
   },
   {
     name: "Elite",
@@ -161,7 +161,7 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/elite-f7-bc43?a=fitflyai",
   },
 ];
 
