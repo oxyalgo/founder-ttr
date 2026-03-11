@@ -42,7 +42,7 @@ const creditPlans = [
       "3-6 month program",
     ],
     ctaText: "Start Repair",
-    ctaHref: "/consultation",
+    ctaHref: "https://credit.advisorhub.io/?uaff=FRANCKYDELISSAINT&utm_source=affiliate",
     featured: true,
     badge: "Most Popular",
   },
@@ -57,7 +57,7 @@ const creditPlans = [
       "Post-repair funding access",
     ],
     ctaText: "Start Bundle",
-    ctaHref: "/consultation",
+    ctaHref: "https://funding.advisorhub.io/?uaff=FRANCKYDELISSAINT&utm_source=affiliate",
   },
 ];
 
