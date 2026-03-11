@@ -3,8 +3,8 @@ import type { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://www.phimindflow.com';
   const pages = [
-    '', '/about', '/trading', '/credit-repair', '/funding', '/pricing',
-    '/contact', '/consultation', '/free-guide', '/resources',
+    '', '/about', '/trading', '/pricing',
+    '/contact', '/consultation', '/resources',
     '/privacy', '/terms', '/disclaimer',
   ];
   return pages.map((path) => ({

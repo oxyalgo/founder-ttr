@@ -7,9 +7,8 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Trading', href: '/trading' },
-  { label: 'Credit Repair', href: '/credit-repair' },
-  { label: 'Funding', href: '/funding' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Discord', href: 'https://discord.gg/nWDH6Swj' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -54,11 +53,12 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300 rounded-lg hover:bg-white/5"
+              {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/free-guide" className="btn-gold ml-4 !py-2.5 !px-6 text-sm">
+          <Link href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai" className="btn-gold ml-4 !py-2.5 !px-6 text-sm" target="_blank" rel="noopener noreferrer">
             Get Started
           </Link>
         </div>
@@ -110,15 +110,18 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 className="px-4 py-3 text-lg text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-white/5 rounded-lg transition-all duration-300 animate-fade-up"
                 style={{ animationDelay: `${i * 60}ms` }}
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="/free-guide"
+              href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai"
               onClick={() => setMenuOpen(false)}
               className="btn-gold text-center mt-6 !py-3 animate-fade-up"
               style={{ animationDelay: `${navLinks.length * 60}ms` }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Get Started
             </Link>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import PricingCard from "@/components/PricingCard";
 import FAQItem from "@/components/FAQItem";
@@ -7,177 +6,111 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Pricing | Founder TTR",
+  title: "Pricing | Phi Mind Flow — AI Trading Plans",
   description:
-    "Credit repair from $99/mo. AI trading from $149/mo. Flywheel bundles that save you money. Simple pricing. No hidden fees.",
+    "AI trading plans from $0 to $997/mo. Live signals, copy trading, and automated execution across 38 markets. Simple pricing. Cancel anytime.",
   openGraph: {
-    title: "Pricing | Founder TTR",
+    title: "Pricing | Phi Mind Flow — AI Trading Plans",
     description:
-      "Simple pricing for credit repair, funding, and AI trading. See all plans.",
+      "AI trading plans from $0 to $997/mo. Live signals, copy trading, and automated execution.",
   },
 };
 
-const creditPlans = [
+const tradingPlans = [
   {
-    name: "Credit Audit",
+    name: "Free",
     price: 0,
     period: "",
     features: [
-      "Full 3-bureau credit review",
-      "Score analysis",
-      "Custom repair roadmap",
-      "No obligation",
+      "Community Discord access",
+      "Daily results posted",
+      "Educational content",
+      "Market overview",
+      "Learn from the community",
     ],
-    ctaText: "Book Free Audit",
-    ctaHref: "/consultation",
+    ctaText: "Join Free",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai",
   },
   {
-    name: "Credit Repair",
-    price: 99,
-    features: [
-      "Monthly dispute cycles",
-      "All 3 bureaus",
-      "Score tracking",
-      "Creditor negotiations",
-      "3-6 month program",
-    ],
-    ctaText: "Start Repair",
-    ctaHref: "https://credit.advisorhub.io/?uaff=FRANCKYDELISSAINT&utm_source=affiliate",
-    featured: true,
-    badge: "Most Popular",
-  },
-  {
-    name: "Credit + Funding Bundle",
+    name: "Premium",
     price: 149,
     features: [
-      "Everything in Credit Repair",
-      "Funding strategy prep",
-      "Application timing",
-      "Lender matching",
-      "Post-repair funding access",
-    ],
-    ctaText: "Start Bundle",
-    ctaHref: "https://funding.advisorhub.io/?uaff=FRANCKYDELISSAINT&utm_source=affiliate",
-  },
-];
-
-const tradingPlans = [
-  {
-    name: "Starter",
-    price: 149,
-    features: [
-      "AI trading signals",
-      "7 forex baskets",
-      "Daily market scans",
-      "Basic Discord access",
+      "All 38 instruments",
+      "Live AI trading signals",
+      "Pre-news alerts (15 min warning)",
+      "Daily bias reports",
+      "AI market analysis",
+      "7 forex basket channels",
+      "Indices, commodities, crypto signals",
       "Mobile alerts",
     ],
     ctaText: "Start Trading",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/premium-4a-1c82?a=fitflyai",
+    ctaHref: "https://whop.com/checkout/plan_HubGrmolF1PHI?a=fitflyai",
   },
   {
-    name: "Pro",
+    name: "VIP",
     price: 349,
-    features: [
-      "Everything in Starter",
-      "Live trade execution",
-      "Daily bias reports",
-      "Prop firm tracking",
-      "Trading journal",
-      "Strategy Room access",
-    ],
-    ctaText: "Go Pro",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
     featured: true,
     badge: "Best Value",
+    features: [
+      "Everything in Premium",
+      "Copy trading (AI trades for you)",
+      "Live P&L tracking",
+      "Prop firm challenge tracker",
+      "Weekly performance recaps",
+      "Trading journal",
+      "Strategy Room voice access",
+    ],
+    ctaText: "Go VIP",
+    ctaHref: "https://whop.com/checkout/plan_l5lOPlJRltDT1?a=fitflyai",
   },
   {
     name: "Elite",
     price: 997,
     features: [
-      "Everything in Pro",
+      "Everything in VIP",
       "Direct line to analysts",
       "Inner circle access",
-      "War Room access",
-      "Priority execution",
-      "Custom strategy",
+      "War Room voice channel",
+      "Priority trade execution",
+      "Custom trading strategy",
+      "1-on-1 strategy sessions",
     ],
     ctaText: "Go Elite",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/elite-f7-bc43?a=fitflyai",
-  },
-];
-
-const bundlePlans = [
-  {
-    name: "Flywheel Starter",
-    price: 283,
-    badge: "Save $35",
-    features: [
-      "Credit Repair ($99)",
-      "Starter Trading ($184)",
-      "Combined discount",
-      "Full Flywheel system",
-    ],
-    ctaText: "Start Flywheel",
-    ctaHref: "/consultation",
-  },
-  {
-    name: "Flywheel Pro",
-    price: 498,
-    badge: "Save $70",
-    featured: true,
-    features: [
-      "Credit + Funding ($149)",
-      "Pro Trading ($384)",
-      "Combined discount",
-      "Full Flywheel system",
-      "Funding strategy included",
-    ],
-    ctaText: "Go Flywheel Pro",
-    ctaHref: "/consultation",
-  },
-  {
-    name: "Flywheel Elite",
-    price: 1096,
-    badge: "Save $150",
-    features: [
-      "Credit + Funding ($149)",
-      "Elite Trading ($1,032)",
-      "Maximum discount",
-      "Full Flywheel system",
-      "Priority everything",
-      "Custom strategy",
-    ],
-    ctaText: "Go Flywheel Elite",
-    ctaHref: "/consultation",
+    ctaHref: "https://whop.com/checkout/plan_xTljiE01bZx4x?a=fitflyai",
   },
 ];
 
 const faqs = [
   {
-    question: "Can I start with just credit repair?",
+    question: "Can I try it before I pay?",
     answer:
-      "Yes. You do not have to do everything at once. Many clients start with credit repair and add trading later once they are funded.",
+      "Yes. The Free plan gives you Discord access, daily results, and educational content. You can see the AI working before you spend a dollar.",
   },
   {
     question: "Are there contracts or commitments?",
     answer:
-      "No long-term contracts. Credit repair is a monthly program (typically 3-6 months). Trading plans are month to month. Cancel anytime.",
+      "No long-term contracts. All plans are month to month. Cancel anytime. No hidden fees.",
   },
   {
-    question: "What is the Flywheel bundle?",
+    question: "What is copy trading?",
     answer:
-      "It combines credit repair and trading into one plan at a discount. You get the full system: fix credit, get funded, trade with AI.",
+      "Copy trading means when the AI places a trade, the same trade is placed on your account automatically. You do not need to watch the screen. Available on VIP and Elite plans.",
   },
   {
-    question: "Do I need to be a trader to use the AI?",
+    question: "Do I need to be a trader to use this?",
     answer:
-      "No. The AI does the trading for you. You just fund the account and connect. No experience needed.",
+      "No. The AI does the trading. You just connect your account and the system handles the rest. No experience needed.",
   },
   {
-    question: "What if I already have good credit?",
+    question: "What broker do I need?",
     answer:
-      "Then you can skip credit repair and go straight to a trading plan. Or we can help you optimize your credit for even better funding offers.",
+      "We recommend Exness for the best experience. The AI is optimized for MetaTrader 5. We will help you set everything up.",
+  },
+  {
+    question: "Can I upgrade or downgrade later?",
+    answer:
+      "Yes. You can change your plan at any time. Upgrades take effect immediately. Downgrades apply at the next billing cycle.",
   },
 ];
 
@@ -196,82 +129,28 @@ export default function PricingPage() {
             <span className="text-gold-gradient">Real Results.</span>
           </h1>
           <p className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto">
-            No hidden fees. No surprises. Pick what you need. Upgrade when you
-            are ready. Cancel anytime.
+            No hidden fees. No surprises. Start free. Upgrade when you are
+            ready. Cancel anytime.
           </p>
         </div>
       </section>
 
-      {/* AI Trading Plans */}
+      {/* Trading Plans */}
       <ScrollReveal>
         <section className="section">
           <div className="max-w-7xl mx-auto">
             <SectionHeading
               label="AI-Powered"
               title="AI Trading Plans"
-              subtitle="Powered by OXY ALGO. Your money works while you sleep."
+              subtitle="8 AI agents. 38 markets. Your money works while you sleep. Powered by OXY ALGO."
             />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
               {tradingPlans.map((plan) => (
                 <PricingCard
                   key={plan.name}
                   name={plan.name}
                   price={plan.price}
-                  features={plan.features}
-                  ctaText={plan.ctaText}
-                  ctaHref={plan.ctaHref}
-                  featured={plan.featured}
-                  badge={plan.badge}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Credit Repair Plans */}
-      <ScrollReveal>
-        <section className="section bg-[var(--navy-dark)]">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeading
-              label="Credit Fix"
-              title="Credit Repair Plans"
-              subtitle="Fix your credit. That unlocks funding and more capital."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              {creditPlans.map((plan) => (
-                <PricingCard
-                  key={plan.name}
-                  name={plan.name}
-                  price={plan.price}
                   period={plan.period}
-                  features={plan.features}
-                  ctaText={plan.ctaText}
-                  ctaHref={plan.ctaHref}
-                  featured={plan.featured}
-                  badge={plan.badge}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Flywheel Bundles */}
-      <ScrollReveal>
-        <section className="section">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeading
-              label="Full System"
-              title="Flywheel Bundles"
-              subtitle="Credit repair + trading combined. Save money. Get the full system."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              {bundlePlans.map((plan) => (
-                <PricingCard
-                  key={plan.name}
-                  name={plan.name}
-                  price={plan.price}
                   features={plan.features}
                   ctaText={plan.ctaText}
                   ctaHref={plan.ctaHref}
@@ -304,9 +183,9 @@ export default function PricingPage() {
 
       <CTABanner
         headline="Not Sure Which Plan?"
-        subtext="Book a free call. We will help you pick the right plan based on your credit and goals."
-        buttonText="Book Free Consultation"
-        buttonHref="/consultation"
+        subtext="Start free. See the results. Upgrade when it clicks."
+        buttonText="Join Free Now"
+        buttonHref="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai"
       />
     </>
   );

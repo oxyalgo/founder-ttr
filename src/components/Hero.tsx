@@ -8,7 +8,7 @@ const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false });
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[100vh] flex items-center">
-      {/* ─── Background layers ─── */}
+      {/* Background layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#080d1a] via-[var(--navy-dark)] to-[var(--background)]" />
 
       {/* Radial gold atmosphere */}
@@ -50,10 +50,10 @@ export default function Hero() {
         <HeroCanvas />
       </div>
 
-      {/* ─── Content ─── */}
+      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
 
-        {/* Badge — fades in first */}
+        {/* Badge */}
         <div
           className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-[var(--gold)]/20 bg-[var(--gold)]/[0.04] mb-10"
           style={{ animation: 'hero-fade-in 1.5s ease-out 0.3s both' }}
@@ -63,65 +63,65 @@ export default function Hero() {
             style={{ animation: 'hero-dot-pulse 3s ease-in-out infinite' }}
           />
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
-            The Money Flywheel
+            AI Trading Automation
           </span>
         </div>
 
-        {/* Headline — each line staggers in with scale */}
+        {/* Headline */}
         <h1 className="text-display leading-[1.05]">
           <span
             className="block text-gold-gradient"
             style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both' }}
           >
-            Fix Your Credit.
+            AI Trades For You.
           </span>
           <span
             className="block text-[var(--foreground)] mt-1 md:mt-2"
             style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both' }}
           >
-            Fund Your Future.
+            38 Markets. 8 Agents.
           </span>
           <span
             className="block text-[var(--foreground)] mt-1 md:mt-2"
             style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both' }}
           >
-            Let AI Trade For You.
+            Zero Emotion.
           </span>
         </h1>
 
-        {/* Subtext — slow fade */}
+        {/* Subtext */}
         <p
           className="mt-8 md:mt-10 text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto leading-relaxed"
           style={{ animation: 'hero-fade-in 2s ease-out 1.8s both' }}
         >
-          We repair your credit, unlock funding, and connect you to an AI trading
-          algorithm that works while you sleep. This is the money flywheel.
+          Our AI scans forex, crypto, indices, and commodities around the clock.
+          It finds trades. It executes. You collect results.
         </p>
 
-        {/* CTAs — rise up together */}
+        {/* CTAs */}
         <div
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'hero-fade-rise 2s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both' }}
         >
-          <Link href="/consultation" className="btn-gold text-base">
-            Book Free Call
+          <Link href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai" className="btn-gold text-base" target="_blank" rel="noopener noreferrer">
+            Join Free
           </Link>
           <Link href="/pricing" className="btn-outline text-base">
             See Pricing
           </Link>
         </div>
 
-        {/* Stats bar — last to appear, glass effect */}
+        {/* Stats bar */}
         <div
           className="mt-20"
           style={{ animation: 'hero-fade-rise 2.5s cubic-bezier(0.16, 1, 0.3, 1) 3s both' }}
         >
           <div className="inline-flex flex-wrap items-center justify-center gap-8 sm:gap-12 px-4 sm:px-10 py-6 rounded-2xl glass">
             {[
-              { value: '500+', label: 'Clients Served' },
-              { value: '$2M+', label: 'Capital Funded' },
-              { value: '38', label: 'Markets Scanned' },
-              { value: '24/7', label: 'AI Trading' },
+              { value: '8', label: 'AI Agents' },
+              { value: '38', label: 'Markets' },
+              { value: '24/7', label: 'Trading' },
+              { value: '$0', label: 'To Start' },
             ].map((stat, i) => (
               <div key={stat.label} className="text-center" style={{ animationDelay: `${3.2 + i * 0.2}s` }}>
                 <p className="text-2xl sm:text-3xl font-extrabold text-gold-gradient">{stat.value}</p>
@@ -150,10 +150,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ─── Bottom gradient fade ─── */}
+      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--background)] to-transparent pointer-events-none" />
 
-      {/* ─── Inline keyframes ─── */}
+      {/* Inline keyframes */}
       <style jsx>{`
         @keyframes hero-fade-in {
           from { opacity: 0; }

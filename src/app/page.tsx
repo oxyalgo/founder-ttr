@@ -2,158 +2,140 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
-import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import StepCard from "@/components/StepCard";
 import PricingCard from "@/components/PricingCard";
 import StatCounter from "@/components/StatCounter";
-import FlywheelDiagram from "@/components/FlywheelDiagram";
 import ScrollReveal from "@/components/ScrollReveal";
-import LeadForm from "@/components/LeadForm";
 import FAQItem from "@/components/FAQItem";
 import CTABanner from "@/components/CTABanner";
+import DiscordShowcase from "@/components/DiscordShowcase";
+import ProofGallery from "@/components/ProofGallery";
 
 export const metadata: Metadata = {
-  title: "Founder TTR | Fix Credit, Get Funded, AI Trades For You",
+  title: "Phi Mind Flow | AI Trading Automation",
   description:
-    "The Flywheel: Fix your credit, get funded, and let AI trade for you. Founder TTR turns bad credit into real income with credit repair, funding, and automated trading.",
+    "8 AI agents scan 38 markets 24/7. Get live trading signals, copy trading, and automated execution. Let AI trade for you while you sleep.",
   openGraph: {
-    title: "Founder TTR | Fix Credit, Get Funded, AI Trades For You",
+    title: "Phi Mind Flow | AI Trading Automation",
     description:
-      "The Flywheel system turns bad credit into real income. Credit repair + funding + AI trading.",
+      "8 AI agents scan 38 markets 24/7. Live signals. Copy trading. Automated execution.",
   },
 };
 
 const painPoints = [
   {
     icon: "&#10005;",
-    title: "Bad Credit",
+    title: "Manual Trading",
     description:
-      "Low scores lock you out. No credit cards. No loans. No way forward.",
+      "You sit at the screen for hours. You miss setups. Emotions take over. You buy high. You sell low. You lose money.",
   },
   {
     icon: "&#10005;",
-    title: "No Funding",
+    title: "Signal Scams",
     description:
-      "Banks say no. You have ideas but no capital. Every door is closed.",
+      "Fake gurus sell signals with no proof. No track record. No real trades. You pay and get nothing.",
   },
   {
     icon: "&#10005;",
-    title: "No Growth",
+    title: "No Risk Control",
     description:
-      "Money sits in a savings account earning nothing. You work harder but stay stuck.",
+      "Blown accounts. No system. No stop losses. No plan. One bad trade wipes out a month of gains.",
   },
 ];
 
 const steps = [
   {
     number: 1,
-    title: "We Fix Your Credit",
+    title: "Join the Hub",
     description:
-      "We remove bad marks from your report. Late payments, collections, errors. Your score goes up.",
+      "Join our Discord community. Get instant access to live signals, AI analysis, and the full trading team.",
   },
   {
     number: 2,
-    title: "You Get Funded",
+    title: "AI Finds Trades",
     description:
-      "Good credit opens doors. Credit cards, loans, lines of credit. Real money in your hands.",
+      "8 AI agents scan 38 instruments 24/7. They use institutional Smart Money strategies to find high-quality setups.",
   },
   {
     number: 3,
-    title: "We Set Up Your Trading",
+    title: "You Collect Profits",
     description:
-      "Use your funds to buy a prop firm challenge or fund a trading account. We connect you to our AI.",
-  },
-  {
-    number: 4,
-    title: "AI Makes Money For You",
-    description:
-      "Our AI scans 38 markets 24/7. It finds trades. It executes. You collect profits. Then repeat.",
-  },
-];
-
-const services = [
-  {
-    icon: "&#9889;",
-    title: "AI Trading",
-    description:
-      "Your money goes to work. Our AI scans forex, crypto, indices, and commodities. It trades for you. 24/7.",
-    href: "/trading",
-  },
-  {
-    icon: "&#9881;",
-    title: "Credit Repair",
-    description:
-      "We dispute bad marks on your credit report. Late payments, collections, errors. Most clients see real results in 3-6 months.",
-    href: "/credit-repair",
-  },
-  {
-    icon: "&#9733;",
-    title: "Funding",
-    description:
-      "Once your credit is fixed, we help you get funded. Credit cards, loans, and lines of credit. Real capital.",
-    href: "/funding",
+      "Trades execute on your account. Track results in real time. Copy trading available so you never miss a move.",
   },
 ];
 
 const testimonials = [
   {
     name: "Marcus J.",
-    role: "Small Business Owner",
+    role: "Forex Trader",
     quote:
-      "My credit went from 520 to 740 in 5 months. I got $50K in business credit. Then I started trading with the AI. Life changed.",
+      "I used to sit at my screen 10 hours a day. Now the AI finds every setup. I check my phone and the trades are already running. Last month was my best month ever.",
     rating: 5,
   },
   {
     name: "Tanya R.",
-    role: "Entrepreneur",
+    role: "Prop Firm Trader",
     quote:
-      "They removed 6 collections from my report. My score jumped 180 points. I used my new funding to start trading. Best decision ever.",
+      "I failed 3 prop firm challenges on my own. Connected to the AI, passed on my first try. Now I trade with their capital. Zero risk to me.",
     rating: 5,
   },
   {
     name: "David K.",
-    role: "Full-Time Trader",
+    role: "Copy Trader",
     quote:
-      "The AI trading is real. I funded a prop firm challenge, passed it with the AI, and now I trade with their money. No risk to me.",
+      "I know nothing about trading. I just copy the AI. I get alerts, I see the trades, and I watch my account grow. This is the future.",
     rating: 5,
   },
 ];
 
 const tradingPlans = [
   {
-    name: "Starter",
-    price: 149,
+    name: "Free",
+    price: 0,
     features: [
-      "AI trading signals",
-      "7 forex baskets",
-      "Daily market scans",
-      "Basic Discord access",
+      "Community Discord access",
+      "Daily results posted",
+      "Educational content",
+      "Market overview",
     ],
-    ctaText: "Start Trading",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/premium-4a-1c82?a=fitflyai",
+    ctaText: "Join Free",
+    ctaHref: "https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai",
   },
   {
-    name: "Pro",
+    name: "Premium",
+    price: 149,
+    features: [
+      "All 38 instruments",
+      "Live AI signals",
+      "Pre-news alerts",
+      "Daily bias reports",
+      "AI market analysis",
+    ],
+    ctaText: "Start Trading",
+    ctaHref: "https://whop.com/checkout/plan_HubGrmolF1PHI?a=fitflyai",
+  },
+  {
+    name: "VIP",
     price: 349,
-    badge: "Most Popular",
+    badge: "Best Value",
     featured: true,
     features: [
-      "Everything in Starter",
-      "Live trade execution",
-      "Daily bias reports",
-      "Prop firm tracking",
-      "Trading journal",
+      "Everything in Premium",
+      "Copy trading",
+      "Live P&L tracking",
+      "Prop firm tracker",
+      "Weekly recaps",
       "Strategy Room access",
     ],
-    ctaText: "Go Pro",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/vip-96-9bb8?a=fitflyai",
+    ctaText: "Go VIP",
+    ctaHref: "https://whop.com/checkout/plan_l5lOPlJRltDT1?a=fitflyai",
   },
   {
     name: "Elite",
     price: 997,
     features: [
-      "Everything in Pro",
+      "Everything in VIP",
       "Direct line to analysts",
       "Inner circle access",
       "War Room access",
@@ -161,40 +143,40 @@ const tradingPlans = [
       "Custom strategy",
     ],
     ctaText: "Go Elite",
-    ctaHref: "https://whop.com/oxy-algo-c9d2/elite-f7-bc43?a=fitflyai",
+    ctaHref: "https://whop.com/checkout/plan_xTljiE01bZx4x?a=fitflyai",
   },
 ];
 
 const faqs = [
   {
-    question: "What is the Flywheel?",
+    question: "What is Phi Mind Flow?",
     answer:
-      "The Flywheel is our system. First we fix your credit. Then you get funded with credit cards, loans, or lines of credit. You use that money to fund a trading account or buy a prop firm challenge. Our AI trades for you. You make money. Then you repeat the cycle.",
+      "Phi Mind Flow is an AI-powered trading automation service. We have 8 AI agents that scan 38 markets around the clock. They find trades, analyze risk, and execute. You get live signals and can copy trades to your own account.",
   },
   {
-    question: "Do I need good credit to start?",
+    question: "How does the AI work?",
     answer:
-      "No. That is the whole point. We start by fixing your credit. Most clients come to us with scores under 600. We work with you no matter where you start.",
+      "Our AI uses institutional Smart Money strategies. It reads price action, order flow, and market structure. When it finds a high-quality setup, it sends a signal and can execute the trade automatically. No guesswork. No emotions.",
   },
   {
-    question: "How does the AI trading work?",
+    question: "What instruments do you trade?",
     answer:
-      "Our AI scans 38 markets including forex, crypto, indices, and commodities. It uses institutional strategies to find high-quality trades. When it finds one, it executes automatically. You get alerts and can track everything in real time.",
+      "We scan 38 instruments: 28 forex pairs across 7 currency baskets, 3 indices, 3 commodities, and 10 crypto assets. The AI covers forex, gold, oil, Bitcoin, Ethereum, and more.",
   },
   {
-    question: "What is a prop firm challenge?",
+    question: "Do I need trading experience?",
     answer:
-      "Prop firms give you money to trade with. You pay a one-time fee to take a challenge. If you pass, you trade with their capital and keep up to 90% of profits. Our AI helps you pass these challenges.",
+      "No. The AI does the work. You can copy trades directly to your account. If you want to learn, we have educational content and a community of traders to help you.",
   },
   {
-    question: "How long does credit repair take?",
+    question: "What is copy trading?",
     answer:
-      "Most clients see real results in 3-6 months. Some items can be removed in 30 days. The time depends on what is on your report.",
+      "Copy trading means our AI places a trade, and the same trade is copied to your account automatically. You do not need to watch the screen or press any buttons. VIP and Elite members get copy trading.",
   },
   {
     question: "Is trading risky?",
     answer:
-      "Yes. All trading involves risk. That is why we use strict risk controls. Our AI never risks more than 2% per trade. We also recommend starting with a prop firm challenge so you trade with their money, not yours.",
+      "Yes. All trading involves risk. That is why we use strict risk controls. The AI never risks more than 2% per trade. It has built-in stop losses, position limits, and a circuit breaker that stops trading if losses get too high.",
   },
 ];
 
@@ -208,7 +190,7 @@ export default function Home() {
       <section className="border-b border-[var(--card-border)] py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-40">
-            {["Equifax", "Experian", "TransUnion", "Exness", "Discord"].map(
+            {["Exness", "MetaTrader 5", "Discord", "OXY ALGO", "Whop"].map(
               (name) => (
                 <span
                   key={name}
@@ -228,8 +210,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <SectionHeading
               label="The Problem"
-              title="Most People Are Stuck"
-              subtitle="Bad credit. No funding. No way to grow your money. It feels like a trap."
+              title="Trading Is Broken"
+              subtitle="Most traders lose money. Emotions, fake signals, and no risk control. It does not have to be this way."
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               {painPoints.map((point) => (
@@ -251,53 +233,16 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* The Flywheel */}
-      <ScrollReveal>
-        <section id="flywheel" className="section relative overflow-hidden">
-          <div className="glow-orb glow-orb-gold w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-          <div className="max-w-5xl mx-auto relative z-10">
-            <SectionHeading
-              label="The Solution"
-              title="The Flywheel"
-              subtitle="We built a system that turns bad credit into real income. Each step makes the next one stronger."
-            />
-            <div className="mt-12 flex flex-col lg:flex-row items-center gap-12">
-              <div className="flex-1">
-                <FlywheelDiagram />
-              </div>
-              <div className="flex-1 space-y-6">
-                <div className="card-3d">
-                  <h3 className="text-lg font-bold text-[var(--gold)] mb-2">
-                    How It Works
-                  </h3>
-                  <p className="text-[var(--muted)] text-sm leading-relaxed">
-                    Fix your credit. Use that good credit to get funded. Use those funds to buy a prop firm challenge or fund a trading account. Connect to our AI. The AI trades for you. You make money. Use the profits to get more funding. The wheel keeps spinning.
-                  </p>
-                </div>
-                <div className="card-3d">
-                  <h3 className="text-lg font-bold text-[var(--gold)] mb-2">
-                    Why It Works
-                  </h3>
-                  <p className="text-[var(--muted)] text-sm leading-relaxed">
-                    Each step feeds the next. Better credit means more funding. More funding means more trading capital. More capital means more profits. More profits means more options. It compounds.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
       {/* How It Works */}
       <ScrollReveal>
         <section className="section bg-[var(--navy-dark)] dot-grid">
           <div className="max-w-7xl mx-auto">
             <SectionHeading
-              label="4 Steps"
+              label="3 Steps"
               title="How It Works"
               subtitle="Simple. Clear. No guesswork."
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {steps.map((step) => (
                 <ScrollReveal key={step.number} delay={step.number * 100}>
                   <StepCard
@@ -312,43 +257,25 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Services Overview */}
-      <ScrollReveal>
-        <section className="section">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeading
-              label="Our Services"
-              title="Three Services. One System."
-              subtitle="Credit repair is step one. Funding is step two. AI trading is where the money grows."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              {services.map((service) => (
-                <ServiceCard
-                  key={service.title}
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  href={service.href}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
+      {/* Discord Showcase */}
+      <DiscordShowcase />
 
       {/* Stats */}
       <ScrollReveal>
         <section className="section bg-[var(--navy-dark)]">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <StatCounter value="500+" label="Clients Helped" />
-              <StatCounter prefix="$" value="2M+" label="Total Funded" />
-              <StatCounter value="85%" label="Success Rate" />
+              <StatCounter value="8+" label="AI Agents" />
+              <StatCounter value="38" label="Instruments" />
+              <StatCounter value="350+" label="Daily Scans" />
               <StatCounter value="24/7" label="AI Trading" />
             </div>
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Verified Withdrawals */}
+      <ProofGallery />
 
       {/* Testimonials */}
       <ScrollReveal>
@@ -356,8 +283,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <SectionHeading
               label="Real Results"
-              title="People Like You Are Winning"
-              subtitle="Credit repair clients who became funded traders. Real stories."
+              title="Traders Are Winning"
+              subtitle="Real people. Real results. See what AI trading can do."
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {testimonials.map((t) => (
@@ -374,16 +301,16 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Pricing Preview */}
+      {/* Trading Plans */}
       <ScrollReveal>
         <section className="section bg-[var(--navy-dark)]">
           <div className="max-w-7xl mx-auto">
             <SectionHeading
-              label="AI Trading Plans"
+              label="Trading Plans"
               title="Simple Pricing. Real Results."
               subtitle="Pick the plan that fits your goals. Cancel anytime."
             />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
               {tradingPlans.map((plan) => (
                 <PricingCard
                   key={plan.name}
@@ -402,24 +329,32 @@ export default function Home() {
                 href="/pricing"
                 className="text-[var(--gold)] font-semibold hover:underline"
               >
-                See full pricing including credit repair and bundles &rarr;
+                See full plan details &rarr;
               </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* Lead Magnet */}
+      {/* CTA Section (replaces Lead Magnet) */}
       <ScrollReveal>
         <section className="section">
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeading
-              label="Free Download"
-              title="Get Your Free Credit + Trading Guide"
-              subtitle="Learn how the Flywheel works. Step by step. Free. No credit card needed."
+              label="Get Started"
+              title="Join the Trading Revolution"
+              subtitle="No experience needed. The AI does the work. You collect the results."
             />
-            <div className="mt-10">
-              <LeadForm />
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai"
+                className="btn-gold text-base"
+              >
+                Join Free
+              </Link>
+              <Link href="/pricing" className="btn-outline text-base">
+                See All Plans
+              </Link>
             </div>
           </div>
         </section>
@@ -432,7 +367,7 @@ export default function Home() {
             <SectionHeading
               label="FAQ"
               title="Questions? Answers."
-              subtitle="The most common questions about credit repair, funding, and AI trading."
+              subtitle="The most common questions about AI trading automation."
             />
             <div className="mt-10">
               {faqs.map((faq) => (
@@ -449,10 +384,10 @@ export default function Home() {
 
       {/* CTA Banner */}
       <CTABanner
-        headline="Ready to Start Your Flywheel?"
-        subtext="Book a free call. We will look at your credit, map out your funding, and show you how the AI works. No pressure."
-        buttonText="Book Free Consultation"
-        buttonHref="/consultation"
+        headline="Ready to Let AI Trade For You?"
+        subtext="Join for free. See the signals. Watch the AI work. Upgrade when you are ready."
+        buttonText="Join Free Now"
+        buttonHref="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai"
       />
     </>
   );

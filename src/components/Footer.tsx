@@ -12,9 +12,9 @@ const columns = [
   {
     title: 'Services',
     links: [
-      { label: 'Credit Repair', href: '/credit-repair' },
-      { label: 'Funding', href: '/funding' },
-      { label: 'Trading', href: '/trading' },
+      { label: 'AI Trading', href: '/trading' },
+      { label: 'Copy Trading', href: '/pricing' },
+      { label: 'Discord Hub', href: 'https://discord.gg/nWDH6Swj' },
     ],
   },
   {
@@ -43,10 +43,11 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link
                       href={link.href}
                       className="text-sm text-[var(--muted)] hover:text-[var(--gold-light)] transition-colors duration-300"
+                      {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     >
                       {link.label}
                     </Link>
@@ -68,12 +69,19 @@ export default function Footer() {
                 <span className="text-gold-gradient font-extrabold text-lg">Founder TTR</span>
               </Link>
               <p className="text-sm text-[var(--muted)] italic">
-                Fix. Fund. Trade. Repeat.
+                AI Trades. You Profit.
               </p>
             </div>
 
             <p className="text-sm text-[var(--muted)]/60">
-              &copy; 2026 Founder TTR. All rights reserved.
+              &copy; 2026 Phi Mind Flow. All rights reserved.
+            </p>
+          </div>
+
+          {/* Earnings Disclaimer */}
+          <div className="mt-8 pt-6 border-t border-[var(--card-border)]/30">
+            <p className="text-xs text-[var(--muted)]/40 leading-relaxed max-w-4xl mx-auto text-center">
+              <strong className="text-[var(--muted)]/60">Earnings Disclaimer:</strong> Trading forex, crypto, indices, and commodities involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. The content on this site is for educational purposes only and should not be considered financial advice. You should consult with a licensed financial advisor before making any investment decisions. Never trade with money you cannot afford to lose. Powered by OXY ALGO.
             </p>
           </div>
         </div>

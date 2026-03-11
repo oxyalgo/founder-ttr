@@ -16,20 +16,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.phimindflow.com'),
-  title: "Founder TTR | Credit Repair, Funding & AI Trading",
+  title: "Phi Mind Flow | AI Trading Automation",
   description:
-    "Fix your credit. Get funded. Let AI trade for you. Founder TTR helps everyday people build real income through credit repair, smart funding, and automated trading.",
+    "8 AI agents scan 38 markets 24/7. Live trading signals, copy trading, and automated execution. Let AI trade for you while you sleep.",
   openGraph: {
-    title: "Founder TTR | Credit Repair, Funding & AI Trading",
+    title: "Phi Mind Flow | AI Trading Automation",
     description:
-      "Fix your credit. Get funded. Let AI trade for you. The Flywheel system turns bad credit into real income.",
+      "8 AI agents scan 38 markets 24/7. Live signals. Copy trading. Automated execution.",
     type: "website",
-    siteName: "Founder TTR",
+    siteName: "Phi Mind Flow",
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Founder TTR | Credit Repair, Funding & AI Trading',
-    description: 'Fix your credit. Get funded. Let AI trade for you. The Flywheel system turns bad credit into real income.',
+    title: 'Phi Mind Flow | AI Trading Automation',
+    description: '8 AI agents scan 38 markets 24/7. Live signals. Copy trading. Automated execution.',
   },
 };
 
@@ -47,31 +47,37 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Founder TTR",
+              name: "Phi Mind Flow",
               description:
-                "Credit repair, funding solutions, and AI-powered trading automation.",
+                "AI-powered trading automation. 8 AI agents scan 38 markets 24/7 for live signals, copy trading, and automated execution.",
               url: "https://www.phimindflow.com",
               sameAs: [],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "support@founderttr.com",
+                email: "support@phimindflow.com",
                 contactType: "customer service",
               },
               offers: [
                 {
                   "@type": "Offer",
-                  name: "Credit Repair",
-                  description: "Professional credit repair services",
+                  name: "AI Trading Signals",
+                  description: "Live AI-powered trading signals across 38 instruments",
+                  price: "149",
+                  priceCurrency: "USD",
                 },
                 {
                   "@type": "Offer",
-                  name: "Funding Assistance",
-                  description: "Business and personal funding solutions",
+                  name: "Copy Trading",
+                  description: "Automated copy trading with AI execution on your account",
+                  price: "349",
+                  priceCurrency: "USD",
                 },
                 {
                   "@type": "Offer",
-                  name: "AI Trading",
-                  description: "AI-powered automated trading signals and execution",
+                  name: "Elite Trading",
+                  description: "Priority execution, custom strategy, and direct analyst access",
+                  price: "997",
+                  priceCurrency: "USD",
                 },
               ],
             }),
@@ -85,8 +91,8 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <div className="mobile-sticky-cta">
-          <a href="/consultation" className="btn-gold w-full text-center block text-sm !py-3">
-            Book Free Call
+          <a href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai" className="btn-gold w-full text-center block text-sm !py-3">
+            Join Free
           </a>
         </div>
       </body>
