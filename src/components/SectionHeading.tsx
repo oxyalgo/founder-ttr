@@ -12,7 +12,7 @@ export default function SectionHeading({
   centered = true,
 }: SectionHeadingProps) {
   return (
-    <div className={`mb-12 md:mb-16 animate-fade-up ${centered ? 'text-center' : ''}`}>
+    <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}>
       {/* Gold accent line */}
       <div
         className={`w-12 h-1 rounded-full bg-gradient-to-r from-[var(--gold-light)] to-[var(--gold-dark)] mb-5 ${
@@ -28,7 +28,7 @@ export default function SectionHeading({
       )}
 
       {/* Title */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--foreground)] tracking-tight leading-tight">
+      <h2 className="t-heading-2 text-[var(--foreground)] tracking-tight leading-tight">
         {title}
       </h2>
 

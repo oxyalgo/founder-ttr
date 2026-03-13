@@ -31,8 +31,9 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="relative bg-[var(--navy-dark)]">
-      {/* Gold gradient divider */}
+      {/* Gradient glow line at top */}
       <div className="h-px bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-12">
@@ -46,7 +47,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[var(--muted)] hover:text-[var(--gold-light)] transition-colors duration-300"
+                      className="text-sm text-[var(--muted)] hover:text-[var(--gold-light)] hover:drop-shadow-[0_0_8px_rgba(212,168,67,0.3)] transition-all duration-300"
                       {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     >
                       {link.label}

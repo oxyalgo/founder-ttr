@@ -257,8 +257,14 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
+      {/* Section Divider */}
+      <div className="section-divider" />
+
       {/* Discord Showcase */}
       <DiscordShowcase />
+
+      {/* Section Divider */}
+      <div className="section-divider" />
 
       {/* Stats */}
       <ScrollReveal>
@@ -276,6 +282,9 @@ export default function Home() {
 
       {/* Verified Withdrawals */}
       <ProofGallery />
+
+      {/* Section Divider */}
+      <div className="section-divider" />
 
       {/* Testimonials */}
       <ScrollReveal>
@@ -335,6 +344,9 @@ export default function Home() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Section Divider */}
+      <div className="section-divider" />
 
       {/* CTA Section (replaces Lead Magnet) */}
       <ScrollReveal>

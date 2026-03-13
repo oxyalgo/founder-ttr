@@ -2,8 +2,19 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 
 const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false });
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { delay: 0.3 + i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 export default function Hero() {
   return (
@@ -54,9 +65,12 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
 
         {/* Badge */}
-        <div
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={fadeUp}
           className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-[var(--gold)]/20 bg-[var(--gold)]/[0.04] mb-10"
-          style={{ animation: 'hero-fade-in 1.5s ease-out 0.3s both' }}
         >
           <div
             className="w-2 h-2 rounded-full bg-[var(--gold)]"
@@ -65,56 +79,87 @@ export default function Hero() {
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
             AI Trading Automation
           </span>
-        </div>
+        </motion.div>
 
         {/* Headline */}
         <h1 className="text-display leading-[1.05]">
-          <span
+          <motion.span
+            initial="hidden"
+            animate="visible"
+            custom={1}
+            variants={fadeUp}
             className="block text-gold-gradient"
-            style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both' }}
           >
             AI Trades For You.
-          </span>
-          <span
+          </motion.span>
+          <motion.span
+            initial="hidden"
+            animate="visible"
+            custom={2}
+            variants={fadeUp}
             className="block text-[var(--foreground)] mt-1 md:mt-2"
-            style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both' }}
           >
             38 Markets. 8 Agents.
-          </span>
-          <span
+          </motion.span>
+          <motion.span
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            variants={fadeUp}
             className="block text-[var(--foreground)] mt-1 md:mt-2"
-            style={{ animation: 'hero-text-rise 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both' }}
           >
             Zero Emotion.
-          </span>
+          </motion.span>
         </h1>
 
         {/* Subtext */}
-        <p
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          custom={4}
+          variants={fadeUp}
           className="mt-8 md:mt-10 text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto leading-relaxed"
-          style={{ animation: 'hero-fade-in 2s ease-out 1.8s both' }}
         >
           Our AI scans forex, crypto, indices, and commodities around the clock.
           It finds trades. It executes. You collect results.
-        </p>
+        </motion.p>
 
         {/* CTAs */}
-        <div
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={5}
+          variants={fadeUp}
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-          style={{ animation: 'hero-fade-rise 2s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both' }}
         >
-          <Link href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai" className="btn-gold text-base" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai"
+            className="btn-gold text-base hover:shadow-[0_0_40px_rgba(212,168,67,0.6)]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Join Free
           </Link>
           <Link href="/pricing" className="btn-outline text-base">
             See Pricing
           </Link>
-        </div>
+        </motion.div>
+
+        {/* Gradient sweep line */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1.2, ease: 'easeOut' }}
+          className="mt-16 mx-auto max-w-lg h-px bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent"
+        />
 
         {/* Stats bar */}
-        <div
-          className="mt-20"
-          style={{ animation: 'hero-fade-rise 2.5s cubic-bezier(0.16, 1, 0.3, 1) 3s both' }}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={7}
+          variants={fadeUp}
+          className="mt-12"
         >
           <div className="inline-flex flex-wrap items-center justify-center gap-8 sm:gap-12 px-4 sm:px-10 py-6 rounded-2xl glass">
             {[
@@ -122,32 +167,32 @@ export default function Hero() {
               { value: '38', label: 'Markets' },
               { value: '24/7', label: 'Trading' },
               { value: '$0', label: 'To Start' },
-            ].map((stat, i) => (
-              <div key={stat.label} className="text-center" style={{ animationDelay: `${3.2 + i * 0.2}s` }}>
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
                 <p className="text-2xl sm:text-3xl font-extrabold text-gold-gradient">{stat.value}</p>
                 <p className="text-xs text-[var(--muted)] mt-1.5 tracking-wide">{stat.label}</p>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Scroll indicator */}
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5, duration: 1 }}
           className="mt-16"
-          style={{ animation: 'hero-fade-in 2s ease-out 4s both' }}
         >
           <div className="flex flex-col items-center gap-2 text-[var(--muted)]/40">
             <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-            <div
-              className="w-5 h-8 rounded-full border border-[var(--muted)]/20 flex justify-center pt-1.5"
-            >
+            <div className="w-5 h-8 rounded-full border border-[var(--muted)]/20 flex justify-center pt-1.5">
               <div
                 className="w-1 h-2 rounded-full bg-[var(--gold)]/40"
                 style={{ animation: 'hero-scroll-dot 2.5s ease-in-out infinite' }}
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
@@ -155,32 +200,6 @@ export default function Hero() {
 
       {/* Inline keyframes */}
       <style jsx>{`
-        @keyframes hero-fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes hero-text-rise {
-          from {
-            opacity: 0;
-            transform: translateY(60px) scale(0.95);
-            filter: blur(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-          }
-        }
-        @keyframes hero-fade-rise {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
         @keyframes hero-drift {
           0%, 100% { transform: translate(0, 0); }
           33% { transform: translate(15px, -20px); }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItemProps {
   question: string;
@@ -19,7 +20,18 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
   }, [answer]);
 
   return (
-    <div className={`border-b border-[var(--card-border)] transition-colors duration-300 ${open ? 'border-[var(--gold)]/30' : ''}`}>
+    <div
+      className={`border-b transition-colors duration-300 ${
+        open ? 'border-[var(--gold)]/30' : 'border-[var(--card-border)]'
+      }`}
+      style={{
+        borderLeftWidth: '2px',
+        borderLeftStyle: 'solid',
+        borderLeftColor: open ? 'var(--gold)' : 'transparent',
+        paddingLeft: open ? '1rem' : '0',
+        transition: 'all 0.3s ease',
+      }}
+    >
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -47,17 +59,24 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
         </div>
       </button>
 
-      {/* Smooth height animation */}
-      <div
-        className="overflow-hidden transition-all duration-500 ease-out"
-        style={{ maxHeight: open ? height + 24 : 0 }}
-      >
-        <div ref={contentRef} className="pb-6">
-          <p className="text-sm text-[var(--muted)] leading-relaxed pl-0">
-            {answer}
-          </p>
-        </div>
-      </div>
+      {/* Smooth expand animation */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: height + 24, opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <div ref={contentRef} className="pb-6">
+              <p className="text-sm text-[var(--muted)] leading-relaxed pl-0">
+                {answer}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
