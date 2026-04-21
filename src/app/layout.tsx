@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import AppBanner from "@/components/AppBanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -92,6 +94,8 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
         <div className="mobile-sticky-cta">
           <a href="https://whop.com/oxy-algo-c9d2/starter-5f/?a=fitflyai" className="btn-gold w-full text-center block text-sm !py-3">
             Join Free
